@@ -70,17 +70,17 @@ class VisualizeModal extends React.PureComponent {
   validate() {
     const hints = [];
     const cols = this.mergedColumns();
-    const re = /^\w+$/;
-    Object.keys(cols).forEach((colName) => {
-      if (!re.test(colName)) {
-        hints.push(
-          <div>
-            "{colName}" is not right as a column name, please alias it
-            (as in SELECT count(*) <strong>AS my_alias</strong>) using only
-            alphanumeric characters and underscores
-          </div>);
-      }
-    });
+    // const re = /^\w+$/;
+    // Object.keys(cols).forEach((colName) => {
+    //   if (!re.test(colName)) {
+    //     hints.push(
+    //       <div>
+    //         "{colName}" is not right as a column name, please alias it
+    //         (as in SELECT count(*) <strong>AS my_alias</strong>) using only
+    //         alphanumeric characters and underscores
+    //       </div>);
+    //   }
+    // });
     if (this.state.chartType === null) {
       hints.push('Pick a chart type!');
     } else if (this.state.chartType.requiresTime) {

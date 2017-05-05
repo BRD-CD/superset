@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 from datetime import datetime
 import logging
 import sqlparse
@@ -215,14 +216,14 @@ class SqlaTable(Model, BaseDatasource):
 
     def get_perm(self):
         return (
-            "[{obj.database}].[{obj.table_name}]"
+            u"[{obj.database}].[{obj.table_name}]"
             "(id:{obj.id})").format(obj=self)
 
     @property
     def name(self):
         if not self.schema:
             return self.table_name
-        return "{}.{}".format(self.schema, self.table_name)
+        return u"{}.{}".format(self.schema, self.table_name)
 
     @property
     def full_name(self):
@@ -306,7 +307,7 @@ class SqlaTable(Model, BaseDatasource):
             qry = qry.where(tp.process_template(self.fetch_values_predicate))
 
         engine = self.database.get_sqla_engine()
-        sql = "{}".format(
+        sql = u"{}".format(
             qry.compile(
                 engine, compile_kwargs={"literal_binds": True}, ),
         )
@@ -379,7 +380,7 @@ class SqlaTable(Model, BaseDatasource):
                 "and is required by this type of chart"))
         for m in metrics:
             if m not in metrics_dict:
-                raise Exception(_("Metric '{}' is not valid".format(m)))
+                raise Exception(_(u"Metric '{}' is not valid".format(m)))
         metrics_exprs = [metrics_dict.get(m).sqla_col for m in metrics]
         timeseries_limit_metric = metrics_dict.get(timeseries_limit_metric)
         timeseries_limit_metric_expr = None
@@ -503,11 +504,11 @@ class SqlaTable(Model, BaseDatasource):
             where = extras.get('where')
             if where:
                 where = template_processor.process_template(where)
-                where_clause_and += [sa.text('({})'.format(where))]
+                where_clause_and += [sa.text(u'({})'.format(where))]
             having = extras.get('having')
             if having:
                 having = template_processor.process_template(having)
-                having_clause_and += [sa.text('({})'.format(having))]
+                having_clause_and += [sa.text(u'({})'.format(having))]
         if granularity:
             qry = qry.where(and_(*([time_filter] + where_clause_and)))
         else:
@@ -592,11 +593,11 @@ class SqlaTable(Model, BaseDatasource):
         db_dialect = self.database.get_sqla_engine().dialect
         for col in table.columns:
             try:
-                datatype = "{}".format(col.type).upper()
+                datatype = u"{}".format(col.type).upper()
             except Exception as e:
                 datatype = "UNKNOWN"
                 logging.error(
-                    "Unrecognized data type in {}.{}".format(table, col.name))
+                    u"Unrecognized data type in {}.{}".format(table, col.name))
                 logging.exception(e)
             dbcol = (
                 db.session
