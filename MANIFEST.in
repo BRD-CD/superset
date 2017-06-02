@@ -1,7 +1,19 @@
 recursive-include superset/templates *
-recursive-include superset/static/assets
-recursive-exclude superset/static/assets/node_modules *
-recursive-include superset/static/assets/node_modules/font-awesome
+include superset/static/assets/backendSync.json
+recursive-include superset/static/assets/branding *
+recursive-include superset/static/assets/dist *
+recursive-include superset/static/assets/images *
+recursive-include superset/static/assets/javascripts *
+include superset/static/assets/js_builder.sh
+include superset/static/assets/package.json
+recursive-include superset/static/assets/spec *
+recursive-include superset/static/assets/stylesheets *
+recursive-include superset/static/assets/utils *
+recursive-include superset/static/assets/vendor *
+include superset/static/assets/version_info.json
+recursive-include superset/static/assets/visualizations *
+include superset/static/assets/webpack.config.js
+recursive-include superset/static/assets/node_modules/font-awesome *
 recursive-exclude tests *
 recursive-include superset/data *
 recursive-include superset/migrations *
