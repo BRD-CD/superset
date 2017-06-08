@@ -77,7 +77,7 @@ class QueryTable extends React.PureComponent {
     const data = this.props.queries.map((query) => {
       const q = Object.assign({}, query);
       if (q.endDttm) {
-        q.duration = fDuration(q.startDttm, q.endDttm);
+        q.耗时 = fDuration(q.startDttm, q.endDttm);
       }
       const time = moment(q.startDttm).format().split('T');
       q.time = (
@@ -87,7 +87,7 @@ class QueryTable extends React.PureComponent {
           </span>
         </div>
       );
-      q.user = (
+      q.用户 = (
         <button
           className="btn btn-link btn-xs"
           onClick={this.props.onUserClicked.bind(this, q.userId)}
@@ -95,7 +95,7 @@ class QueryTable extends React.PureComponent {
           {q.user}
         </button>
       );
-      q.db = (
+      q.数据库 = (
         <button
           className="btn btn-link btn-xs"
           onClick={this.props.onDbClicked.bind(this, q.dbId)}
@@ -103,8 +103,8 @@ class QueryTable extends React.PureComponent {
           {q.db}
         </button>
       );
-      q.started = moment(q.startDttm).format('HH:mm:ss');
-      q.querylink = (
+      q.执行时间 = moment(q.startDttm).format('HH:mm:ss');
+      q.查询链接 = (
         <div style={{ width: '100px' }}>
           <button
             className="btn btn-link btn-xs"
@@ -120,7 +120,7 @@ class QueryTable extends React.PureComponent {
         </Well>
       );
       if (q.resultsKey) {
-        q.output = (
+        q.输出 = (
           <ModalTrigger
             bsSize="large"
             className="ResultsModal"
@@ -144,9 +144,9 @@ class QueryTable extends React.PureComponent {
         // if query was run using ctas and force_ctas_schema was set
         // tempTable will have the schema
         const schemaUsed = q.ctas && q.tempTable && q.tempTable.includes('.') ? '' : q.schema;
-        q.output = [schemaUsed, q.tempTable].filter(v => (v)).join('.');
+        q.输出 = [schemaUsed, q.tempTable].filter(v => (v)).join('.');
       }
-      q.progress = (
+      q.进度 = (
         <ProgressBar
           style={{ width: '75px' }}
           striped
@@ -162,7 +162,7 @@ class QueryTable extends React.PureComponent {
           </Link>
         );
       }
-      q.state = (
+      q.状态 = (
         <div>
           <span className={'m-r-3 label label-' + STATE_BSSTYLE_MAP[q.state]}>
             {q.state}
@@ -170,7 +170,7 @@ class QueryTable extends React.PureComponent {
           {errorTooltip}
         </div>
       );
-      q.actions = (
+      q.操作 = (
         <div style={{ width: '75px' }}>
           <Link
             className="fa fa-line-chart m-r-3"

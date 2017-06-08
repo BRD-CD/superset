@@ -182,8 +182,8 @@ class VisualizeModal extends React.PureComponent {
       );
     }
     const tableData = this.props.query.results.columns.map(col => ({
-      column: col.name,
-      is_dimension: (
+      '字段': col.name,
+      '是度量字段': (
         <input
           type="checkbox"
           onChange={this.changeCheckbox.bind(this, 'is_dim', col.name)}
@@ -191,7 +191,8 @@ class VisualizeModal extends React.PureComponent {
           className="form-control"
         />
       ),
-      is_date: (
+
+      '是时间字段': (
         <input
           type="checkbox"
           className="form-control"
@@ -199,7 +200,7 @@ class VisualizeModal extends React.PureComponent {
           checked={(this.state.columns[col.name]) ? this.state.columns[col.name].is_date : false}
         />
       ),
-      agg_func: (
+      '聚合函数': (
         <Select
           options={[
             { value: 'sum', label: 'SUM(x)' },
@@ -250,7 +251,7 @@ class VisualizeModal extends React.PureComponent {
             <hr />
             <Table
               className="table table-condensed"
-              columns={['column', 'is_dimension', 'is_date', 'agg_func']}
+              columns={['字段', '是度量字段', '是时间字段', '聚合函数']}
               data={tableData}
             />
             <Button

@@ -258,7 +258,7 @@ export const controls = {
 
   secondary_metric: {
     type: 'SelectControl',
-    label: '颜色度量,
+    label: '颜色度量',
     default: null,
     description: 'A metric to use for color',
     mapStateToProps: state => ({
