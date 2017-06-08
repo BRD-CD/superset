@@ -18,14 +18,14 @@ function SliceCell({ expandedSlices, removeSlice, slice }) {
           </div>
           <div className="col-md-12 chart-controls">
             <div className="pull-right">
-              <a title="Move chart" data-toggle="tooltip">
+              <a title="移动图表" data-toggle="tooltip">
                 <i className="fa fa-arrows drag" />
               </a>
               <a className="refresh" title="Force refresh data" data-toggle="tooltip">
                 <i className="fa fa-repeat" />
               </a>
               {slice.description &&
-                <a title="Toggle chart description">
+                <a title="切换图表描述">
                   <i
                     className="fa fa-info-circle slice_info"
                     title={slice.description}
@@ -35,17 +35,17 @@ function SliceCell({ expandedSlices, removeSlice, slice }) {
               }
               <a
                 href={slice.edit_url}
-                title="Edit chart"
+                title="编辑图表"
                 data-toggle="tooltip"
               >
                 <i className="fa fa-pencil" />
               </a>
-              <a href={slice.slice_url} title="Explore chart" data-toggle="tooltip">
+              <a href={slice.slice_url} title="图表设置" data-toggle="tooltip">
                 <i className="fa fa-share" />
               </a>
               <a
                 className="remove-chart"
-                title="Remove chart from dashboard"
+                title="从看板移除图表"
                 data-toggle="tooltip"
               >
                 <i

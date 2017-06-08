@@ -121,7 +121,7 @@ class SqlEditor extends React.PureComponent {
     }
     let ctasControls;
     if (this.props.database && this.props.database.allow_ctas) {
-      const ctasToolTip = 'Create table as with query results';
+      const ctasToolTip = '使用查询的结果创建表';
       ctasControls = (
         <FormGroup>
           <InputGroup>
@@ -129,7 +129,7 @@ class SqlEditor extends React.PureComponent {
               type="text"
               bsSize="small"
               className="input-sm"
-              placeholder="new table name"
+              placeholder="新的表名"
               onChange={this.ctasChanged.bind(this)}
             />
             <InputGroup.Button>

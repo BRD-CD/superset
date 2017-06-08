@@ -133,13 +133,13 @@ class SliceAdder extends React.Component {
               isKey
               dataSort
             >
-              Name
+              名字
             </TableHeaderColumn>
             <TableHeaderColumn
               dataField="vizType"
               dataSort
             >
-              Viz
+              图表类型
             </TableHeaderColumn>
             <TableHeaderColumn
               dataField="modified"
@@ -148,7 +148,7 @@ class SliceAdder extends React.Component {
               // Will cause react-bootstrap-table to interpret the HTML returned
               dataFormat={modified => modified}
             >
-              Modified
+              修改时间
             </TableHeaderColumn>
           </BootstrapTable>
           <button
@@ -158,7 +158,7 @@ class SliceAdder extends React.Component {
             onClick={this.addSlices}
             disabled={!enableAddSlice}
           >
-            Add Slices
+            添加图表
           </button>
         </div>
       </div>
@@ -167,11 +167,11 @@ class SliceAdder extends React.Component {
     return (
       <ModalTrigger
         triggerNode={this.props.triggerNode}
-        tooltip="Add a new slice to the dashboard"
+        tooltip="添加一个图表到看板"
         isButton
         modalBody={modalContent}
         bsSize="large"
-        modalTitle="Add Slices to Dashboard"
+        modalTitle="添加图表到看板"
       />
     );
   }

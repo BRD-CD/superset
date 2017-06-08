@@ -61,7 +61,7 @@ class SqlEditorLeftBar extends React.PureComponent {
     if (data.result.length === 0) {
       this.props.actions.addAlert({
         bsStyle: 'danger',
-        msg: "It seems you don't have access to any database",
+        msg: "你可能没有权限防伪数据库",
       });
     }
     return options;
@@ -150,7 +150,7 @@ class SqlEditorLeftBar extends React.PureComponent {
             actions={this.props.actions}
             valueRenderer={o => (
               <div>
-                <span className="text-muted">Database:</span> {o.label}
+                <span className="text-muted">数据库:</span> {o.label}
               </div>
             )}
             mutator={this.dbMutator.bind(this)}
@@ -165,7 +165,7 @@ class SqlEditorLeftBar extends React.PureComponent {
             value={this.props.queryEditor.schema}
             valueRenderer={o => (
               <div>
-                <span className="text-muted">Schema:</span> {o.label}
+                <span className="text-muted">库:</span> {o.label}
               </div>
             )}
             isLoading={this.state.schemaLoading}
@@ -180,7 +180,7 @@ class SqlEditorLeftBar extends React.PureComponent {
               ref="selectTable"
               isLoading={this.state.tableLoading}
               value={this.state.tableName}
-              placeholder={`Add a table (${this.state.tableOptions.length})`}
+              placeholder={`添加一个表 (${this.state.tableOptions.length})`}
               autosize={false}
               onChange={this.changeTable.bind(this)}
               filterOptions={this.state.filterOptions}
@@ -193,7 +193,7 @@ class SqlEditorLeftBar extends React.PureComponent {
               name="async-select-table"
               ref="selectTable"
               value={this.state.tableName}
-              placeholder={'Type to search ...'}
+              placeholder={'查询类型 ...'}
               autosize={false}
               onChange={this.changeTable.bind(this)}
               loadOptions={this.getTableNamesBySubStr.bind(this)}

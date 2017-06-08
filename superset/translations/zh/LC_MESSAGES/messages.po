@@ -121,7 +121,7 @@ msgstr "词汇云"
 
 #: superset/viz.py:466
 msgid "Treemap"
-msgstr "树状图"
+msgstr "矩阵图"
 
 #: superset/viz.py:492
 msgid "Calendar Heatmap"
@@ -365,11 +365,11 @@ msgstr "隐藏"
 
 #: superset/connectors/druid/views.py:193 superset/connectors/sqla/views.py:186
 msgid "Enable Filter Select"
-msgstr ""
+msgstr "允许筛选器"
 
 #: superset/connectors/druid/views.py:194
 msgid "Default Endpoint"
-msgstr ""
+msgstr "默认端口"
 
 #: superset/connectors/druid/views.py:195
 msgid "Time Offset"
@@ -388,7 +388,7 @@ msgstr "缺少时间字段"
 
 #: superset/connectors/sqla/models.py:376
 msgid "Metric '{}' is not valid"
-msgstr ""
+msgstr "度量 '{}' 不可用"
 
 #: superset/connectors/sqla/views.py:39
 msgid ""
@@ -430,11 +430,11 @@ msgstr "SQL表达式"
 
 #: superset/connectors/sqla/views.py:154
 msgid "Name of the table that exists in the source database"
-msgstr ""
+msgstr "数据库中存在的表名"
 
 #: superset/connectors/sqla/views.py:156
 msgid "Schema, as used only in some databases like Postgres, Redshift and DB2"
-msgstr ""
+msgstr "库名，只在部分数据库中使用到"
 
 #: superset/connectors/sqla/views.py:162
 msgid ""
@@ -526,7 +526,7 @@ msgstr "测试连接"
 
 #: superset/views/core.py:201
 msgid "Expose this DB in SQL Lab"
-msgstr ""
+msgstr "在SQL工具箱中暴露此数据库"
 
 #: superset/views/core.py:202
 msgid ""
@@ -559,15 +559,15 @@ msgstr ""
 
 #: superset/views/core.py:229
 msgid "Expose in SQL Lab"
-msgstr ""
+msgstr "在SQL工具箱中暴露"
 
 #: superset/views/core.py:230
 msgid "Allow CREATE TABLE AS"
-msgstr ""
+msgstr "允许创建表"
 
 #: superset/views/core.py:231
 msgid "Allow DML"
-msgstr ""
+msgstr "允许DML操作"
 
 #: superset/views/core.py:232
 msgid "CTAS Schema"
@@ -616,7 +616,7 @@ msgstr "当单击“保存”或“覆盖”按钮时，这些参数会在视图
 
 #: superset/views/core.py:336
 msgid "Duration (in seconds) of the caching timeout for this slice."
-msgstr "切片数据过期时间(秒)"
+msgstr "图表数据过期时间(秒)"
 
 #: superset/views/core.py:347
 msgid "Last Modified"
@@ -632,7 +632,7 @@ msgstr "参数"
 
 #: superset/views/core.py:350 superset/views/core.py:386
 msgid "Slice"
-msgstr "切片"
+msgstr "图表"
 
 #: superset/views/core.py:351
 msgid "Name"
@@ -684,7 +684,7 @@ msgstr ""
 
 #: superset/views/core.py:436
 msgid "Slices"
-msgstr "切片"
+msgstr "图表"
 
 #: superset/views/core.py:439 superset/views/core.py:501
 msgid "Modified"

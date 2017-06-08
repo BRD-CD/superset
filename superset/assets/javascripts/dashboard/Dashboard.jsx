@@ -32,7 +32,7 @@ export function getInitialState(boostrapData) {
 }
 
 function unload() {
-  const message = 'You have unsaved changes.';
+  const message = '您右未保存的修改.';
   window.event.returnValue = message; // Gecko + IE
   return message; // Gecko + Webkit, Safari, Chrome etc.
 }
@@ -49,9 +49,9 @@ function renderAlert() {
   render(
     <div className="container-fluid">
       <Alert bsStyle="warning">
-        <strong>You have unsaved changes.</strong> Click the&nbsp;
+        <strong>您有未保存的修改.</strong> 点击&nbsp;
         <i className="fa fa-save" />&nbsp;
-        button on the top right to save your changes.
+        右上角的按钮保存.
       </Alert>
     </div>,
     document.getElementById('alert-container'),
@@ -326,7 +326,7 @@ export function dashboardContainer(dashboard, datasources) {
           const errorMsg = getAjaxErrorMsg(error);
           utils.showModal({
             title: 'Error',
-            body: 'Sorry, there was an error adding slices to this dashboard: </ br>' + errorMsg,
+            body: '抱歉, 添加图表到看板时发生了一个错误: </ br>' + errorMsg,
           });
         },
       });

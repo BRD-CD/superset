@@ -50,7 +50,7 @@ class Controls extends React.PureComponent {
     return (
       <ButtonGroup>
         <Button
-          tooltip="Force refresh the whole dashboard"
+          tooltip="强制刷新看板"
           onClick={this.refresh.bind(this)}
         >
           <i className="fa fa-refresh" />
@@ -90,7 +90,7 @@ class Controls extends React.PureComponent {
           onClick={() => {
             window.location = `/dashboardmodelview/edit/${dashboard.id}`;
           }}
-          tooltip="Edit this dashboard's properties"
+          tooltip="编辑看版的属性"
         >
           <i className="fa fa-edit" />
         </Button>

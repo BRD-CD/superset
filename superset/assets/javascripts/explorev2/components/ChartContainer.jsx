@@ -249,7 +249,7 @@ class ChartContainer extends React.PureComponent {
 
                   <TooltipWrapper
                     label="edit-desc"
-                    tooltip="Edit Description"
+                    tooltip="编辑描述"
                   >
                     <a
                       className="edit-desc-icon"

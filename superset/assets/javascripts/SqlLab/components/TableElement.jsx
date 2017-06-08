@@ -133,7 +133,7 @@ class TableElement extends React.PureComponent {
         <ModalTrigger
           modalTitle={
             <div>
-              Keys for table <strong>{table.name}</strong>
+              <strong>{table.name}</strong> 的键
             </div>
           }
           modalBody={table.indexes.map((ix, i) => (
@@ -142,7 +142,7 @@ class TableElement extends React.PureComponent {
           triggerNode={
             <Link
               className="fa fa-key pull-left m-l-2"
-              tooltip={`View keys & indexes (${table.indexes.length})`}
+              tooltip={`查看键 & 索引 (${table.indexes.length})`}
             />
           }
         />
@@ -179,8 +179,8 @@ class TableElement extends React.PureComponent {
                   onClick={this.toggleSortColumns.bind(this)}
                   tooltip={
                     !this.state.sortColumns ?
-                    'Sort columns alphabetically' :
-                    'Original table column order'}
+                    '按字母给列排序' :
+                    '原始列的排序'}
                   href="#"
                 />
                 {table.selectStar &&
@@ -190,13 +190,13 @@ class TableElement extends React.PureComponent {
                     }
                     text={table.selectStar}
                     shouldShowText={false}
-                    tooltipText="Copy SELECT statement to clipboard"
+                    tooltipText="复制SELECT语句到剪贴板"
                   />
                 }
                 <Link
                   className="fa fa-trash table-remove pull-left m-l-2"
                   onClick={this.removeTable.bind(this)}
-                  tooltip="Remove table preview"
+                  tooltip="移除表预览"
                   href="#"
                 />
               </ButtonGroup>

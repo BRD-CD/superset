@@ -10,10 +10,10 @@ import $ from 'jquery';
 import { getExploreUrl } from '../../explorev2/exploreUtils';
 
 const CHART_TYPES = [
-  { value: 'dist_bar', label: 'Distribution - Bar Chart', requiresTime: false },
-  { value: 'pie', label: 'Pie Chart', requiresTime: false },
-  { value: 'line', label: 'Time Series - Line Chart', requiresTime: true },
-  { value: 'bar', label: 'Time Series - Bar Chart', requiresTime: true },
+  { value: 'dist_bar', label: '分布 - 柱形图', requiresTime: false },
+  { value: 'pie', label: '饼图', requiresTime: false },
+  { value: 'line', label: '时间序列 - 折线图', requiresTime: true },
+  { value: 'bar', label: '时间序列 - 柱形图', requiresTime: true },
 ];
 
 const propTypes = {
@@ -82,7 +82,7 @@ class VisualizeModal extends React.PureComponent {
     //   }
     // });
     if (this.state.chartType === null) {
-      hints.push('Pick a chart type!');
+      hints.push('选择一种图表!');
     } else if (this.state.chartType.requiresTime) {
       let hasTime = false;
       for (const colName in cols) {
@@ -93,8 +93,7 @@ class VisualizeModal extends React.PureComponent {
       }
       if (!hasTime) {
         hints.push(
-          'To use this chart type you need at least one column ' +
-          'flagged as a date');
+          '要使用这种图表，必须包含至少一个时间字段');
       }
     }
     this.setState({ hints });
@@ -121,7 +120,7 @@ class VisualizeModal extends React.PureComponent {
       sql: this.props.query.sql,
       dbId: this.props.query.dbId,
     };
-    notify.info('Creating a data source and popping a new tab');
+    notify.info('正在创建数据表&跳转到图表设置');
     $.ajax({
       type: 'POST',
       url: '/superset/sqllab_viz/',
@@ -150,7 +149,7 @@ class VisualizeModal extends React.PureComponent {
         }
         window.open(getExploreUrl(formData));
       },
-      error: () => notify('An error occurred while creating the data source'),
+      error: () => notify('创建数据表时发生了一个错误'),
     });
   }
   changeDatasourceName(event) {
@@ -176,7 +175,7 @@ class VisualizeModal extends React.PureComponent {
         <div className="VisualizeModal">
           <Modal show={this.props.show} onHide={this.props.onHide}>
             <Modal.Body>
-              No results available for this query
+              这个查询没有可用的结果
             </Modal.Body>
           </Modal>
         </div>
@@ -227,10 +226,10 @@ class VisualizeModal extends React.PureComponent {
             {alerts}
             <div className="row">
               <Col md={6}>
-                Chart Type
+                图表类型
                 <Select
                   name="select-chart-type"
-                  placeholder="[Chart Type]"
+                  placeholder="[图表类型]"
                   options={CHART_TYPES}
                   value={(this.state.chartType) ? this.state.chartType.value : null}
                   autosize={false}
@@ -238,11 +237,11 @@ class VisualizeModal extends React.PureComponent {
                 />
               </Col>
               <Col md={6}>
-                Datasource Name
+                数据表名
                 <input
                   type="text"
                   className="form-control input-sm"
-                  placeholder="datasource name"
+                  placeholder="数据表名"
                   onChange={this.changeDatasourceName.bind(this)}
                   value={this.state.datasourceName}
                 />
@@ -259,7 +258,7 @@ class VisualizeModal extends React.PureComponent {
               bsStyle="primary"
               disabled={(this.state.hints.length > 0)}
             >
-              Visualize
+              可视化
             </Button>
           </Modal.Body>
         </Modal>

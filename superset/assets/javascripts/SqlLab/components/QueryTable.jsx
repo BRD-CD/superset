@@ -21,7 +21,7 @@ const propTypes = {
   onDbClicked: PropTypes.func,
 };
 const defaultProps = {
-  columns: ['started', 'duration', 'rows'],
+  columns: ['开始时间', '耗时', '行数'],
   queries: [],
   onUserClicked: () => {},
   onDbClicked: () => {},
@@ -45,7 +45,7 @@ class QueryTable extends React.PureComponent {
   openQuery(dbId, schema, sql) {
     const newQuery = {
       dbId,
-      title: 'Untitled Query',
+      title: '未命名查询',
       schema,
       sql,
     };
@@ -132,7 +132,7 @@ class QueryTable extends React.PureComponent {
                 view results
               </Label>
             )}
-            modalTitle={'Data preview'}
+            modalTitle={'数据预览'}
             beforeOpen={this.openAsyncResults.bind(this, query)}
             onExit={this.clearQueryResults.bind(this, query)}
             modalBody={
@@ -174,24 +174,24 @@ class QueryTable extends React.PureComponent {
         <div style={{ width: '75px' }}>
           <Link
             className="fa fa-line-chart m-r-3"
-            tooltip="Visualize the data out of this query"
+            tooltip="可视化次查询"
             onClick={this.showVisualizeModal.bind(this, query)}
           />
           <Link
             className="fa fa-pencil m-r-3"
             onClick={this.restoreSql.bind(this, query)}
-            tooltip="Overwrite text in editor with a query on this table"
+            tooltip="将SQL覆盖编辑器中的文本"
             placement="top"
           />
           <Link
             className="fa fa-plus-circle m-r-3"
             onClick={this.openQueryInNewTab.bind(this, query)}
-            tooltip="Run query in a new tab"
+            tooltip="在新的tab中执行查询"
             placement="top"
           />
           <Link
             className="fa fa-trash m-r-3"
-            tooltip="Remove query from log"
+            tooltip="从日志中删除查询"
             onClick={this.removeQuery.bind(this, query)}
           />
         </div>

@@ -76,12 +76,12 @@ class SouthPane extends React.PureComponent {
         />
       );
     } else {
-      results = <Alert bsStyle="info">Run a query to display results here</Alert>;
+      results = <Alert bsStyle="info">执行一个查询将在此显示结果</Alert>;
     }
 
     const dataPreviewTabs = props.dataPreviewQueries.map(query => (
       <Tab
-        title={`Preview for ${query.tableName}`}
+        title={`${query.tableName} 预览`}
         eventKey={query.id}
         key={query.id}
       >
@@ -105,13 +105,13 @@ class SouthPane extends React.PureComponent {
           onSelect={this.switchTab.bind(this)}
         >
           <Tab
-            title="Results"
+            title="结果"
             eventKey="Results"
           >
             {results}
           </Tab>
           <Tab
-            title="Query History"
+            title="查询历史"
             eventKey="History"
           >
             <div style={{ height: `${this.state.innerTabHeight}px`, overflow: 'scroll' }}>

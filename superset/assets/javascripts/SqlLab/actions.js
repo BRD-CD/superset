@@ -47,8 +47,8 @@ export function saveQuery(query) {
     type: 'POST',
     url,
     data: query,
-    success: () => notify.success('Your query was saved'),
-    error: () => notify.error('Your query could not be saved'),
+    success: () => notify.success('查询已保存'),
+    error: () => notify.error('查询不能保存'),
     dataType: 'json',
   });
   return { type: SAVE_QUERY };
@@ -59,7 +59,7 @@ export function startQuery(query) {
     id: query.id ? query.id : shortid.generate(),
     progress: 0,
     startDttm: now(),
-    state: (query.runAsync) ? 'pending' : 'running',
+    state: (query.runAsync) ? '等待' : '运行中',
     cached: false,
   });
   return { type: START_QUERY, query };
@@ -101,7 +101,7 @@ export function fetchQueryResults(query) {
         dispatch(querySuccess(query, results));
       },
       error(err) {
-        let msg = 'Failed at retrieving results from the results backend';
+        let msg = '从服务器获取数据失败';
         if (err.responseJSON && err.responseJSON.error) {
           msg = err.responseJSON.error;
         }
@@ -147,12 +147,12 @@ export function runQuery(query) {
           }
         }
         if (textStatus === 'error' && errorThrown === '') {
-          msg = 'Could not connect to server';
+          msg = '无法连接至服务器';
         } else if (msg === null) {
           msg = `[${textStatus}] ${errorThrown}`;
         }
         if (msg.indexOf('The CSRF token is missing') > 0) {
-          msg = 'Your session timed out, please refresh your page and try again.';
+          msg = '会话超市, 请刷新页面重试.';
         }
         dispatch(queryFailed(query, msg));
       },
@@ -274,7 +274,7 @@ export function addTable(query, tableName, schemaName) {
     .fail(() => {
       dispatch(
         addAlert({
-          msg: 'Error occurred while fetching metadata',
+          msg: '读取元数据时发生错误',
           bsStyle: 'danger',
         }),
       );
@@ -347,7 +347,7 @@ export function popStoredQuery(urlId) {
         };
         dispatch(addQueryEditor(queryEditorProps));
       },
-      error: () => notify.error("The query couldn't be loaded"),
+      error: () => notify.error("查询不能加载"),
     });
   };
 }
@@ -367,7 +367,7 @@ export function popSavedQuery(saveQueryId) {
         };
         dispatch(addQueryEditor(queryEditorProps));
       },
-      error: () => notify.error("The query couldn't be loaded"),
+      error: () => notify.error("查询不能加载"),
     });
   };
 }

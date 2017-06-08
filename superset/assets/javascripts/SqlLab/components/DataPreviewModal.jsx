@@ -29,7 +29,7 @@ class DataPreviewModal extends React.PureComponent {
         >
           <Modal.Header closeButton>
             <Modal.Title>
-              Data preview for <strong>{query.tableName}</strong>
+             <strong>{query.tableName}</strong> 数据预览
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
