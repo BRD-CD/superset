@@ -297,6 +297,21 @@ msgstr ""
 msgid "Druid Datasource"
 msgstr "Druid数据源"
 
+msgid "Backend"
+msgstr "数据源类型"
+
+msgid "Allow Run Sync"
+msgstr "允许同步执行"
+
+msgid "Allow Run Async"
+msgstr "允许异步执行"
+
+msgid "Allow DML"
+msgstr "允许DML"
+
+msgid "Modified"
+msgstr "修改时间"
+
 #: superset/connectors/druid/views.py:123
 #: superset/connectors/druid/views.py:189
 msgid "Cluster"
@@ -365,11 +380,11 @@ msgstr "隐藏"
 
 #: superset/connectors/druid/views.py:193 superset/connectors/sqla/views.py:186
 msgid "Enable Filter Select"
-msgstr "允许筛选器"
+msgstr ""
 
 #: superset/connectors/druid/views.py:194
 msgid "Default Endpoint"
-msgstr "默认端口"
+msgstr ""
 
 #: superset/connectors/druid/views.py:195
 msgid "Time Offset"
@@ -388,7 +403,7 @@ msgstr "缺少时间字段"
 
 #: superset/connectors/sqla/models.py:376
 msgid "Metric '{}' is not valid"
-msgstr "度量 '{}' 不可用"
+msgstr ""
 
 #: superset/connectors/sqla/views.py:39
 msgid ""
@@ -430,11 +445,11 @@ msgstr "SQL表达式"
 
 #: superset/connectors/sqla/views.py:154
 msgid "Name of the table that exists in the source database"
-msgstr "数据库中存在的表名"
+msgstr ""
 
 #: superset/connectors/sqla/views.py:156
 msgid "Schema, as used only in some databases like Postgres, Redshift and DB2"
-msgstr "库名，只在部分数据库中使用到"
+msgstr ""
 
 #: superset/connectors/sqla/views.py:162
 msgid ""
@@ -526,7 +541,7 @@ msgstr "测试连接"
 
 #: superset/views/core.py:201
 msgid "Expose this DB in SQL Lab"
-msgstr "在SQL工具箱中暴露此数据库"
+msgstr ""
 
 #: superset/views/core.py:202
 msgid ""
@@ -559,15 +574,13 @@ msgstr ""
 
 #: superset/views/core.py:229
 msgid "Expose in SQL Lab"
-msgstr "在SQL工具箱中暴露"
+msgstr ""
 
 #: superset/views/core.py:230
 msgid "Allow CREATE TABLE AS"
-msgstr "允许创建表"
+msgstr ""
 
-#: superset/views/core.py:231
-msgid "Allow DML"
-msgstr "允许DML操作"
+
 
 #: superset/views/core.py:232
 msgid "CTAS Schema"
@@ -618,9 +631,6 @@ msgstr "当单击“保存”或“覆盖”按钮时，这些参数会在视图
 msgid "Duration (in seconds) of the caching timeout for this slice."
 msgstr "图表数据过期时间(秒)"
 
-#: superset/views/core.py:347
-msgid "Last Modified"
-msgstr "最后修改"
 
 #: superset/views/core.py:348 superset/views/core.py:437
 msgid "Owners"
@@ -686,9 +696,6 @@ msgstr ""
 msgid "Slices"
 msgstr "图表"
 
-#: superset/views/core.py:439 superset/views/core.py:501
-msgid "Modified"
-msgstr "已修改"
 
 #: superset/views/core.py:440
 msgid "Position JSON"
@@ -725,38 +732,38 @@ msgstr "查询搜索"
 #~ msgid "[Superset] Access to the datasource %(name)s was granted"
 #~ msgstr ""
 
-#~ msgid "Druid Clusters"
-#~ msgstr "Druid集群"
+msgid "Druid Clusters"
+msgstr "Druid集群"
 
-#~ msgid "Sources"
-#~ msgstr "数据源"
+msgid "Sources"
+msgstr "数据源"
 
-#~ msgid "Druid Datasources"
-#~ msgstr "Druid数据源"
+msgid "Druid Datasources"
+msgstr "Druid数据源"
 
-#~ msgid "Refresh Druid Metadata"
-#~ msgstr "刷新Druid元数据"
+msgid "Refresh Druid Metadata"
+msgstr "刷新Druid元数据"
 
-#~ msgid "Tables"
-#~ msgstr "数据表"
+msgid "Tables"
+msgstr "数据表"
 
-#~ msgid "Datasource %(name)s already exists"
-#~ msgstr ""
+msgid "Datasource %(name)s already exists"
+msgstr "数据源 %(name) 已经存在"
 
 #~ msgid "This endpoint requires the `all_datasource_access` permission"
 #~ msgstr ""
 
-#~ msgid "The datasource seems to have been deleted"
-#~ msgstr ""
+msgid "The datasource seems to have been deleted"
+msgstr "数据源可能已经被删除"
 
 #~ msgid "The access requests seem to have been deleted"
 #~ msgstr ""
 
-#~ msgid "The user seems to have been deleted"
-#~ msgstr ""
+msgid "The user seems to have been deleted"
+msgstr "用户可能已经被删除"
 
-#~ msgid "You don't have access to this datasource"
-#~ msgstr ""
+msgid "You don't have access to this datasource"
+msgstr "您没有访问这个数据源的权限"
 
 #~ msgid ""
 #~ "This view requires the database %(name)s"
@@ -769,26 +776,26 @@ msgstr "查询搜索"
 #~ "permission"
 #~ msgstr ""
 
-#~ msgid "Import Dashboards"
-#~ msgstr "导入仪表盘"
+msgid "Import Dashboards"
+msgstr "导入看板"
 
-#~ msgid "Manage"
-#~ msgstr "管理"
+msgid "Manage"
+msgstr "管理"
 
-#~ msgid "Databases"
-#~ msgstr "数据库"
+msgid "Databases"
+msgstr "数据库"
 
-#~ msgid "Access requests"
-#~ msgstr "访问请求"
+msgid "Access requests"
+msgstr "访问请求"
 
-#~ msgid "Security"
-#~ msgstr "安全"
+msgid "Security"
+msgstr "安全"
 
 #~ msgid "Click on a {} link to create a Slice"
 #~ msgstr ""
 
-#~ msgid "Action Log"
-#~ msgstr "操作日志"
+msgid "Action Log"
+msgstr "操作日志"
 
 #~ msgid "Access was requested"
 #~ msgstr ""
@@ -822,15 +829,14 @@ msgstr "查询搜索"
 #~ msgid "Can't find DruidCluster with cluster_name = '%(name)s'"
 #~ msgstr ""
 
-#~ msgid "CSS Templates"
-#~ msgstr "CSS模板"
+msgid "CSS Templates"
+msgstr "CSS模板"
 
-#~ msgid "SQL Lab"
-#~ msgstr "SQL工具箱"
+msgid "SQL Lab"
+msgstr "SQL工具箱"
 
-#~ msgid "Queries"
-#~ msgstr "查询"
+msgid "Queries"
+msgstr "查询"
 
-#~ msgid "Saved Queries"
-#~ msgstr "已保存查询"
-
+msgid "Saved Queries"
+msgstr "保存的查询"
