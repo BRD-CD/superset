@@ -28,7 +28,7 @@ export default function ExploreActionButtons({
         <a
           href={slice.data.json_endpoint}
           className="btn btn-default btn-sm"
-          title="Export to .json"
+          title="导出json文件"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -38,7 +38,7 @@ export default function ExploreActionButtons({
         <a
           href={slice.data.csv_endpoint}
           className={exportToCSVClasses}
-          title="Export to .csv format"
+          title="导出csv文件"
           target="_blank"
           rel="noopener noreferrer"
         >

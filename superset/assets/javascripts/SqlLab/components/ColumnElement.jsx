@@ -13,9 +13,9 @@ const iconMap = {
   index: 'fa-bookmark',
 };
 const tooltipTitleMap = {
-  pk: 'Primary Key',
-  fk: 'Foreign Key',
-  index: 'Index',
+  pk: '主键',
+  fk: '外键',
+  index: '索引',
 };
 
 export default function ColumnElement(props) {

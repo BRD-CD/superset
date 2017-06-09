@@ -1,4 +1,5 @@
 """A collection of ORM sqlalchemy models for Superset"""
+#-*- coding: UTF-8 -*-
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -705,7 +706,7 @@ class Database(Model, AuditMixinNullable):
 
     def get_perm(self):
         return (
-            "[{obj.database_name}].(id:{obj.id})").format(obj=self)
+            u"[{obj.database_name}].(id:{obj.id})").format(obj=self)
 
 sqla.event.listen(Database, 'after_insert', set_perm)
 sqla.event.listen(Database, 'after_update', set_perm)

@@ -102,7 +102,7 @@ class QuerySearch extends React.PureComponent {
     if (data.result.length === 0) {
       this.props.actions.addAlert({
         bsStyle: 'danger',
-        msg: "It seems you don't have access to any database",
+        msg: "你可能没有权限访问数据库",
       });
     }
     return options;
@@ -201,7 +201,7 @@ class QuerySearch extends React.PureComponent {
                 <QueryTable
                   columns={[
                     'state', 'db', 'user', 'time',
-                    'progress', 'rows', 'sql', 'querylink',
+                    'progress', 'rows', 'sql', 'queryLink',
                   ]}
                   onUserClicked={this.onUserClicked.bind(this)}
                   onDbClicked={this.onDbClicked.bind(this)}

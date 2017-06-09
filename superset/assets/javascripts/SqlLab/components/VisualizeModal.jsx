@@ -15,10 +15,10 @@ import { VISUALIZE_VALIDATION_ERRORS } from '../constants';
 import { QUERY_TIMEOUT_THRESHOLD } from '../../constants';
 
 const CHART_TYPES = [
-  { value: 'dist_bar', label: 'Distribution - Bar Chart', requiresTime: false },
-  { value: 'pie', label: 'Pie Chart', requiresTime: false },
-  { value: 'line', label: 'Time Series - Line Chart', requiresTime: true },
-  { value: 'bar', label: 'Time Series - Bar Chart', requiresTime: true },
+  { value: 'dist_bar', label: '分布 - 柱形图', requiresTime: false },
+  { value: 'pie', label: '饼图', requiresTime: false },
+  { value: 'line', label: '时间序列 - 折线图', requiresTime: true },
+  { value: 'bar', label: '时间序列 - 柱形图', requiresTime: true },
 ];
 
 const propTypes = {
@@ -78,19 +78,19 @@ class VisualizeModal extends React.PureComponent {
   validate() {
     const hints = [];
     const cols = this.mergedColumns();
-    const re = /^\w+$/;
-    Object.keys(cols).forEach((colName) => {
-      if (!re.test(colName)) {
-        hints.push(
-          <div>
-            "{colName}" is not right as a column name, please alias it
-            (as in SELECT count(*) <strong>AS my_alias</strong>) using only
-            alphanumeric characters and underscores
-          </div>);
-      }
-    });
+    // const re = /^\w+$/;
+    // Object.keys(cols).forEach((colName) => {
+    //   if (!re.test(colName)) {
+    //     hints.push(
+    //       <div>
+    //         "{colName}" is not right as a column name, please alias it
+    //         (as in SELECT count(*) <strong>AS my_alias</strong>) using only
+    //         alphanumeric characters and underscores
+    //       </div>);
+    //   }
+    // });
     if (this.state.chartType === null) {
-      hints.push(VISUALIZE_VALIDATION_ERRORS.REQUIRE_CHART_TYPE);
+      hints.push('选择一种图表!');
     } else if (this.state.chartType.requiresTime) {
       let hasTime = false;
       for (const colName in cols) {
@@ -100,7 +100,8 @@ class VisualizeModal extends React.PureComponent {
         }
       }
       if (!hasTime) {
-        hints.push(VISUALIZE_VALIDATION_ERRORS.REQUIRE_TIME);
+        hints.push(
+          '要使用这种图表，必须包含至少一个时间字段');
       }
     }
     this.setState({ hints });
@@ -193,15 +194,15 @@ class VisualizeModal extends React.PureComponent {
         <div className="VisualizeModal">
           <Modal show={this.props.show} onHide={this.props.onHide}>
             <Modal.Body>
-              No results available for this query
+              这个查询没有可用的结果
             </Modal.Body>
           </Modal>
         </div>
       );
     }
     const tableData = this.props.query.results.columns.map(col => ({
-      column: col.name,
-      is_dimension: (
+      '字段': col.name,
+      '是度量字段': (
         <input
           type="checkbox"
           onChange={this.changeCheckbox.bind(this, 'is_dim', col.name)}
@@ -209,7 +210,8 @@ class VisualizeModal extends React.PureComponent {
           className="form-control"
         />
       ),
-      is_date: (
+
+      '是时间字段': (
         <input
           type="checkbox"
           className="form-control"
@@ -217,7 +219,7 @@ class VisualizeModal extends React.PureComponent {
           checked={(this.state.columns[col.name]) ? this.state.columns[col.name].is_date : false}
         />
       ),
-      agg_func: (
+      '聚合函数': (
         <Select
           options={[
             { value: 'sum', label: 'SUM(x)' },
@@ -245,10 +247,10 @@ class VisualizeModal extends React.PureComponent {
             {this.buildVisualizeAdvise()}
             <div className="row">
               <Col md={6}>
-                Chart Type
+                图表类型
                 <Select
                   name="select-chart-type"
-                  placeholder="[Chart Type]"
+                  placeholder="[图表类型]"
                   options={CHART_TYPES}
                   value={(this.state.chartType) ? this.state.chartType.value : null}
                   autosize={false}
@@ -256,11 +258,11 @@ class VisualizeModal extends React.PureComponent {
                 />
               </Col>
               <Col md={6}>
-                Datasource Name
+                数据表名
                 <input
                   type="text"
                   className="form-control input-sm"
-                  placeholder="datasource name"
+                  placeholder="数据表名"
                   onChange={this.changeDatasourceName.bind(this)}
                   value={this.state.datasourceName}
                 />
@@ -269,7 +271,7 @@ class VisualizeModal extends React.PureComponent {
             <hr />
             <Table
               className="table table-condensed"
-              columns={['column', 'is_dimension', 'is_date', 'agg_func']}
+              columns={['字段', '是度量字段', '是时间字段', '聚合函数']}
               data={tableData}
             />
             <Button
@@ -277,7 +279,7 @@ class VisualizeModal extends React.PureComponent {
               bsStyle="primary"
               disabled={(this.state.hints.length > 0)}
             >
-              Visualize
+              可视化
             </Button>
           </Modal.Body>
         </Modal>

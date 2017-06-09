@@ -85,7 +85,7 @@ export default class ResultSet extends React.PureComponent {
             type="text"
             onChange={this.changeSearch.bind(this)}
             className="form-control input-sm"
-            placeholder="Search Results"
+            placeholder="搜索结果"
           />
         );
       }
@@ -154,7 +154,7 @@ export default class ResultSet extends React.PureComponent {
     let sql;
 
     if (query.state === 'stopped') {
-      return <Alert bsStyle="warning">Query was stopped</Alert>;
+      return <Alert bsStyle="warning">查询已停止</Alert>;
     }
 
     if (this.props.showSql) {
@@ -182,14 +182,13 @@ export default class ResultSet extends React.PureComponent {
       return (
         <div>
           <Alert bsStyle="info">
-            Table [<strong>{query.tempTable}</strong>] was
-            created &nbsp;
+            表 [<strong>{query.tempTable}</strong>] 已经创建 &nbsp;
             <Button
               bsSize="small"
               className="m-r-5"
               onClick={this.popSelectStar.bind(this)}
             >
-              Query in a new tab
+              在新的tab中查询
             </Button>
           </Alert>
         </div>);
@@ -221,11 +220,11 @@ export default class ResultSet extends React.PureComponent {
           bsStyle="primary"
           onClick={this.reFetchQueryResults.bind(this, query)}
         >
-          Fetch data preview
+          获取数据预览
         </Button>
       );
     }
-    return <Alert bsStyle="warning">The query returned no data</Alert>;
+    return <Alert bsStyle="warning">没有查询到数据</Alert>;
   }
 }
 ResultSet.propTypes = propTypes;

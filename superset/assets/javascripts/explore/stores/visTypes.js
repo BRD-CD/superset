@@ -1,14 +1,14 @@
 export const sections = {
   druidTimeSeries: {
-    label: 'Time',
-    description: 'Time related form attributes',
+    label: '时间',
+    description: '时间相关设置',
     controlSetRows: [
       ['granularity', 'druid_time_origin'],
       ['since', 'until'],
     ],
   },
   datasourceAndVizType: {
-    label: 'Datasource & Chart Type',
+    label: '数据源 & 图表类型',
     controlSetRows: [
       ['datasource'],
       ['viz_type'],
@@ -16,8 +16,8 @@ export const sections = {
     ],
   },
   sqlaTimeSeries: {
-    label: 'Time',
-    description: 'Time related form attributes',
+    label: '时间',
+    description: '时间相关设置',
     controlSetRows: [
       ['granularity_sqla', 'time_grain_sqla'],
       ['since', 'until'],
@@ -29,7 +29,7 @@ export const sections = {
       ['where'],
       ['having'],
     ],
-    description: 'This section exposes ways to include snippets of SQL in your query',
+    description: '如何包含SQL段',
   },
   NVD3TimeSeries: [
     {
@@ -41,7 +41,7 @@ export const sections = {
       ],
     },
     {
-      label: 'Advanced Analytics',
+      label: '高级解析',
       description: 'This section contains options ' +
       'that allow for advanced analytical post processing ' +
       'of query results',
@@ -56,7 +56,7 @@ export const sections = {
   ],
   filters: [
     {
-      label: 'Filters',
+      label: '筛选',
       description: 'Filters are defined using comma delimited strings as in <US,FR,Other>' +
       'Leave the value control empty to filter empty strings or nulls' +
       'For filters with comma in values, wrap them in single quotes' +
@@ -64,7 +64,7 @@ export const sections = {
       controlSetRows: [['filters']],
     },
     {
-      label: 'Result Filters',
+      label: '结果筛选',
       description: 'The filters to apply after post-aggregation.' +
       'Leave the value control empty to filter empty strings or nulls',
       controlSetRows: [['having_filters']],
@@ -74,10 +74,10 @@ export const sections = {
 
 const visTypes = {
   dist_bar: {
-    label: 'Distribution - Bar Chart',
+    label: '分布-柱状图',
     controlPanelSections: [
       {
-        label: 'Chart Options',
+        label: '图表设置',
         controlSetRows: [
           ['metrics'],
           ['groupby'],
@@ -94,17 +94,17 @@ const visTypes = {
     ],
     controlOverrides: {
       groupby: {
-        label: 'Series',
+        label: '系列',
       },
       columns: {
-        label: 'Breakdowns',
+        label: '子系列',
         description: 'Defines how each series is broken down',
       },
     },
   },
 
   pie: {
-    label: 'Pie Chart',
+    label: '饼图',
     controlPanelSections: [
       {
         label: null,
@@ -120,7 +120,7 @@ const visTypes = {
   },
 
   line: {
-    label: 'Time Series - Line Chart',
+    label: '时间序列-折线图',
     requiresTime: true,
     controlPanelSections: [
       sections.NVD3TimeSeries[0],
@@ -146,24 +146,24 @@ const visTypes = {
   },
 
   dual_line: {
-    label: 'Dual Axis Line Chart',
+    label: '时间序列-双轴线图',
     requiresTime: true,
     controlPanelSections: [
       {
-        label: 'Chart Options',
+        label: '图表设置',
         controlSetRows: [
           ['x_axis_format'],
         ],
       },
       {
-        label: 'Y Axis 1',
+        label: 'Y轴1',
         controlSetRows: [
           ['metric'],
           ['y_axis_format'],
         ],
       },
       {
-        label: 'Y Axis 2',
+        label: 'Y轴2',
         controlSetRows: [
           ['metric_2'],
           ['y_axis_2_format'],
@@ -172,22 +172,22 @@ const visTypes = {
     ],
     controlOverrides: {
       metric: {
-        label: 'Left Axis Metric',
+        label: '左轴度量',
         description: 'Choose a metric for left axis',
       },
       y_axis_format: {
-        label: 'Left Axis Format',
+        label: '左轴格式',
       },
     },
   },
 
   bar: {
-    label: 'Time Series - Bar Chart',
+    label: '时间序列-柱状图',
     requiresTime: true,
     controlPanelSections: [
       sections.NVD3TimeSeries[0],
       {
-        label: 'Chart Options',
+        label: '图表设置',
         controlSetRows: [
           ['show_brush', 'show_legend', 'show_bar_value'],
           ['rich_tooltip', 'contribution'],
@@ -209,7 +209,7 @@ const visTypes = {
   },
 
   compare: {
-    label: 'Time Series - Percent Change',
+    label: '时间序列-百分比变化',
     requiresTime: true,
     controlPanelSections: [
       sections.NVD3TimeSeries[0],
@@ -224,12 +224,12 @@ const visTypes = {
   },
 
   area: {
-    label: 'Time Series - Stacked',
+    label: '时间序列-堆积图',
     requiresTime: true,
     controlPanelSections: [
       sections.NVD3TimeSeries[0],
       {
-        label: 'Chart Options',
+        label: '图表设置',
         controlSetRows: [
           ['show_brush', 'show_legend'],
           ['line_interpolation', 'stacked_style'],
@@ -250,10 +250,10 @@ const visTypes = {
   },
 
   table: {
-    label: 'Table View',
+    label: '表视图',
     controlPanelSections: [
       {
-        label: 'GROUP BY',
+        label: '分组',
         description: 'Use this section if you want a query that aggregates',
         controlSetRows: [
           ['groupby', 'metrics'],
@@ -261,7 +261,7 @@ const visTypes = {
         ],
       },
       {
-        label: 'NOT GROUPED BY',
+        label: '不分组',
         description: 'Use this section if you want to query atomic rows',
         controlSetRows: [
           ['all_columns'],
@@ -269,7 +269,7 @@ const visTypes = {
         ],
       },
       {
-        label: 'Options',
+        label: '设置',
         controlSetRows: [
           ['table_timestamp_format'],
           ['row_limit', 'page_length'],
@@ -288,7 +288,7 @@ const visTypes = {
   },
 
   markup: {
-    label: 'Markup',
+    label: '标记',
     controlPanelSections: [
       {
         label: null,
@@ -301,7 +301,7 @@ const visTypes = {
   },
 
   pivot_table: {
-    label: 'Pivot Table',
+    label: '透视表',
     controlPanelSections: [
       {
         label: null,
@@ -315,7 +315,7 @@ const visTypes = {
   },
 
   separator: {
-    label: 'Separator',
+    label: '分隔符',
     controlPanelSections: [
       {
         label: null,
@@ -336,7 +336,7 @@ const visTypes = {
   },
 
   word_cloud: {
-    label: 'Word Cloud',
+    label: '词汇云',
     controlPanelSections: [
       {
         label: null,
@@ -350,7 +350,7 @@ const visTypes = {
   },
 
   treemap: {
-    label: 'Treemap',
+    label: '矩阵图',
     controlPanelSections: [
       {
         label: null,
@@ -360,7 +360,7 @@ const visTypes = {
         ],
       },
       {
-        label: 'Chart Options',
+        label: '图表设置',
         controlSetRows: [
           ['treemap_ratio'],
           ['number_format'],
@@ -370,7 +370,7 @@ const visTypes = {
   },
 
   cal_heatmap: {
-    label: 'Calendar Heatmap',
+    label: '时间热力图',
     requiresTime: true,
     controlPanelSections: [
       {
@@ -385,7 +385,7 @@ const visTypes = {
   },
 
   box_plot: {
-    label: 'Box Plot',
+    label: '箱线图',
     controlPanelSections: [
       {
         label: null,
@@ -395,7 +395,7 @@ const visTypes = {
         ],
       },
       {
-        label: 'Chart Options',
+        label: '图表设置',
         controlSetRows: [
           ['whisker_options'],
         ],
@@ -404,7 +404,7 @@ const visTypes = {
   },
 
   bubble: {
-    label: 'Bubble Chart',
+    label: '气泡图',
     controlPanelSections: [
       {
         label: null,
@@ -415,7 +415,7 @@ const visTypes = {
         ],
       },
       {
-        label: 'Chart Options',
+        label: '图表设置',
         controlSetRows: [
           ['show_legend', 'max_bubble_size'],
           ['x_axis_label', 'y_axis_label'],
@@ -426,7 +426,7 @@ const visTypes = {
   },
 
   bullet: {
-    label: 'Bullet Chart',
+    label: '子弹图',
     requiresTime: false,
     controlPanelSections: [
       {
@@ -442,7 +442,7 @@ const visTypes = {
   },
 
   big_number: {
-    label: 'Big Number with Trendline',
+    label: '数字和趋势线',
     controlPanelSections: [
       {
         label: null,
@@ -456,13 +456,13 @@ const visTypes = {
     ],
     controlOverrides: {
       y_axis_format: {
-        label: 'Number format',
+        label: '数字格式',
       },
     },
   },
 
   big_number_total: {
-    label: 'Big Number',
+    label: '数字',
     controlPanelSections: [
       {
         label: null,
@@ -475,13 +475,13 @@ const visTypes = {
     ],
     controlOverrides: {
       y_axis_format: {
-        label: 'Number format',
+        label: '数字格式',
       },
     },
   },
 
   histogram: {
-    label: 'Histogram',
+    label: '直方图',
     controlPanelSections: [
       {
         label: null,
@@ -491,7 +491,7 @@ const visTypes = {
         ],
       },
       {
-        label: 'Histogram Options',
+        label: '直方图设置',
         controlSetRows: [
           ['link_length'],
         ],
@@ -499,11 +499,11 @@ const visTypes = {
     ],
     controlOverrides: {
       all_columns_x: {
-        label: 'Numeric Column',
+        label: '数字字段',
         description: 'Select the numeric column to draw the histogram',
       },
       link_length: {
-        label: 'No of Bins',
+        label: '分段数',
         description: 'Select number of bins for the histogram',
         default: 5,
       },
@@ -541,7 +541,7 @@ const visTypes = {
   },
 
   sankey: {
-    label: 'Sankey',
+    label: '蛇形图',
     controlPanelSections: [
       {
         label: null,
@@ -554,7 +554,7 @@ const visTypes = {
     ],
     controlOverrides: {
       groupby: {
-        label: 'Source / Target',
+        label: '源 / 目标',
         description: 'Choose a source and a target',
       },
     },
@@ -572,7 +572,7 @@ const visTypes = {
         ],
       },
       {
-        label: 'Force Layout',
+        label: '有向图',
         controlSetRows: [
           ['link_length'],
           ['charge'],
@@ -581,7 +581,7 @@ const visTypes = {
     ],
     controlOverrides: {
       groupby: {
-        label: 'Source / Target',
+        label: '源 / 目标',
         description: 'Choose a source and a target',
       },
     },
@@ -611,7 +611,7 @@ const visTypes = {
     },
   },
   world_map: {
-    label: 'World Map',
+    label: '世界地图',
     controlPanelSections: [
       {
         label: null,
@@ -622,7 +622,7 @@ const visTypes = {
         ],
       },
       {
-        label: 'Bubbles',
+        label: '气泡',
         controlSetRows: [
           ['show_bubbles'],
           ['secondary_metric'],
@@ -632,22 +632,22 @@ const visTypes = {
     ],
     controlOverrides: {
       entity: {
-        label: 'Country Control',
+        label: '国家',
         description: '3 letter code of the country',
       },
       metric: {
-        label: 'Metric for color',
+        label: '颜色度量',
         description: 'Metric that defines the color of the country',
       },
       secondary_metric: {
-        label: 'Bubble size',
+        label: '气泡大小',
         description: 'Metric that defines the size of the bubble',
       },
     },
   },
 
   filter_box: {
-    label: 'Filter Box',
+    label: '筛选器',
     controlPanelSections: [
       {
         label: null,
@@ -660,7 +660,7 @@ const visTypes = {
     ],
     controlOverrides: {
       groupby: {
-        label: 'Filter controls',
+        label: '筛选',
         description: 'The controls you want to filter on',
         default: [],
       },
@@ -668,7 +668,7 @@ const visTypes = {
   },
 
   iframe: {
-    label: 'iFrame',
+    label: '内联框架',
     controlPanelSections: [
       {
         label: null,
@@ -680,7 +680,7 @@ const visTypes = {
   },
 
   para: {
-    label: 'Parallel Coordinates',
+    label: '平行坐标',
     controlPanelSections: [
       {
         label: null,
@@ -696,7 +696,7 @@ const visTypes = {
   },
 
   heatmap: {
-    label: 'Heatmap',
+    label: '热力图',
     controlPanelSections: [
       {
         label: 'Axis & Metrics',
@@ -707,7 +707,7 @@ const visTypes = {
         ],
       },
       {
-        label: 'Heatmap Options',
+        label: '热力图设置',
         controlSetRows: [
           ['linear_color_scheme'],
           ['xscale_interval', 'yscale_interval'],
@@ -719,11 +719,11 @@ const visTypes = {
   },
 
   horizon: {
-    label: 'Horizon',
+    label: '水平图',
     controlPanelSections: [
       sections.NVD3TimeSeries[0],
       {
-        label: 'Chart Options',
+        label: '图表设置',
         controlSetRows: [
           ['series_height', 'horizon_color_scale'],
         ],
@@ -732,7 +732,7 @@ const visTypes = {
   },
 
   mapbox: {
-    label: 'Mapbox',
+    label: '箱图',
     controlPanelSections: [
       {
         label: null,
@@ -745,21 +745,21 @@ const visTypes = {
         ],
       },
       {
-        label: 'Points',
+        label: '点',
         controlSetRows: [
           ['point_radius'],
           ['point_radius_unit'],
         ],
       },
       {
-        label: 'Labelling',
+        label: '标签',
         controlSetRows: [
           ['mapbox_label'],
           ['pandas_aggfunc'],
         ],
       },
       {
-        label: 'Visual Tweaks',
+        label: '干扰可是',
         controlSetRows: [
           ['mapbox_style'],
           ['global_opacity'],
@@ -767,7 +767,7 @@ const visTypes = {
         ],
       },
       {
-        label: 'Viewport',
+        label: '视窗',
         controlSetRows: [
           ['viewport_longitude'],
           ['viewport_latitude'],
@@ -777,20 +777,20 @@ const visTypes = {
     ],
     controlOverrides: {
       all_columns_x: {
-        label: 'Longitude',
+        label: '经度',
         description: 'Column containing longitude data',
       },
       all_columns_y: {
-        label: 'Latitude',
+        label: '纬度',
         description: 'Column containing latitude data',
       },
       pandas_aggfunc: {
-        label: 'Cluster label aggregator',
+        label: '标签聚合函数',
         description: 'Aggregate function applied to the list of points ' +
         'in each cluster to produce the cluster label.',
       },
       rich_tooltip: {
-        label: 'Tooltip',
+        label: '提示',
         description: 'Show a tooltip when hovering over points and clusters ' +
         'describing the label',
       },

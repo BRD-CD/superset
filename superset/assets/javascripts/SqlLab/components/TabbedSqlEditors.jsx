@@ -101,7 +101,7 @@ class TabbedSqlEditors extends React.PureComponent {
   }
   renameTab(qe) {
     /* eslint no-alert: 0 */
-    const newTitle = prompt('Enter a new title for the tab');
+    const newTitle = prompt('给tab输入一个新的标题');
     if (newTitle) {
       this.props.actions.queryEditorSetTitle(qe, newTitle);
     }
@@ -166,10 +166,10 @@ class TabbedSqlEditors extends React.PureComponent {
             title=""
           >
             <MenuItem eventKey="1" onClick={this.removeQueryEditor.bind(this, qe)}>
-              <i className="fa fa-close" /> close tab
+              <i className="fa fa-close" /> 关闭tab
             </MenuItem>
             <MenuItem eventKey="2" onClick={this.renameTab.bind(this, qe)}>
-              <i className="fa fa-i-cursor" /> rename tab
+              <i className="fa fa-i-cursor" /> 重命名tab
             </MenuItem>
             {qe &&
               <CopyQueryTabUrl queryEditor={qe} />
@@ -177,7 +177,7 @@ class TabbedSqlEditors extends React.PureComponent {
             <MenuItem eventKey="4" onClick={this.toggleLeftBar.bind(this)}>
               <i className="fa fa-cogs" />
               &nbsp;
-              {this.state.hideLeftBar ? 'expand tool bar' : 'hide tool bar'}
+              {this.state.hideLeftBar ? '展开工具栏' : '隐藏工具栏'}
             </MenuItem>
           </DropdownButton>
         </div>

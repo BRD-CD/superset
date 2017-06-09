@@ -128,7 +128,7 @@ msgstr "词汇云"
 
 #: superset/viz.py:471
 msgid "Treemap"
-msgstr "树状图"
+msgstr "矩阵图"
 
 #: superset/viz.py:497
 msgid "Calendar Heatmap"
@@ -308,8 +308,23 @@ msgstr ""
 msgid "Druid Datasource"
 msgstr "Druid数据源"
 
-#: superset/connectors/druid/views.py:124
-#: superset/connectors/druid/views.py:204
+msgid "Backend"
+msgstr "数据源类型"
+
+msgid "Allow Run Sync"
+msgstr "允许同步执行"
+
+msgid "Allow Run Async"
+msgstr "允许异步执行"
+
+msgid "Allow DML"
+msgstr "允许DML"
+
+msgid "Modified"
+msgstr "修改时间"
+
+#: superset/connectors/druid/views.py:123
+#: superset/connectors/druid/views.py:189
 msgid "Cluster"
 msgstr "集群"
 
@@ -538,7 +553,7 @@ msgstr "测试连接"
 
 #: superset/views/core.py:206
 msgid "Expose this DB in SQL Lab"
-msgstr ""
+msgstr "在SQL工具箱中开发此数据库"
 
 #: superset/views/core.py:207
 msgid ""
@@ -571,15 +586,12 @@ msgstr ""
 
 #: superset/views/core.py:234
 msgid "Expose in SQL Lab"
-msgstr ""
+msgstr "在SQL工具箱子中开放"
 
 #: superset/views/core.py:235
 msgid "Allow CREATE TABLE AS"
 msgstr ""
 
-#: superset/views/core.py:236
-msgid "Allow DML"
-msgstr ""
 
 #: superset/views/core.py:237
 msgid "CTAS Schema"
@@ -628,15 +640,8 @@ msgstr "当单击“保存”或“覆盖”按钮时，这些参数会在视图
 
 #: superset/views/core.py:346
 msgid "Duration (in seconds) of the caching timeout for this slice."
-msgstr "切片数据过期时间(秒)"
+msgstr "图表数据过期时间(秒)"
 
-#: superset/views/core.py:354
-msgid "Dashboards"
-msgstr "看板"
-
-#: superset/views/core.py:357
-msgid "Last Modified"
-msgstr "最后修改"
 
 #: superset/views/core.py:358 superset/views/core.py:448
 msgid "Owners"
@@ -648,7 +653,7 @@ msgstr "参数"
 
 #: superset/views/core.py:360 superset/views/core.py:396
 msgid "Slice"
-msgstr "切片"
+msgstr "图表"
 
 #: superset/views/core.py:361
 msgid "Name"
@@ -700,11 +705,8 @@ msgstr ""
 
 #: superset/views/core.py:447
 msgid "Slices"
-msgstr "切片"
+msgstr "图表"
 
-#: superset/views/core.py:450 superset/views/core.py:514
-msgid "Modified"
-msgstr "已修改"
 
 #: superset/views/core.py:451
 msgid "Position JSON"
@@ -741,62 +743,62 @@ msgstr "查询搜索"
 #~ msgid "[Superset] Access to the datasource %(name)s was granted"
 #~ msgstr ""
 
-#~ msgid "Druid Clusters"
-#~ msgstr "Druid集群"
+msgid "Druid Clusters"
+msgstr "Druid集群"
 
-#~ msgid "Sources"
-#~ msgstr "数据源"
+msgid "Sources"
+msgstr "数据源"
 
-#~ msgid "Druid Datasources"
-#~ msgstr "Druid数据源"
+msgid "Druid Datasources"
+msgstr "Druid数据源"
 
-#~ msgid "Refresh Druid Metadata"
-#~ msgstr "刷新Druid元数据"
+msgid "Refresh Druid Metadata"
+msgstr "刷新Druid元数据"
 
-#~ msgid "Tables"
-#~ msgstr "数据表"
+msgid "Tables"
+msgstr "数据表"
 
-#~ msgid "Datasource %(name)s already exists"
-#~ msgstr ""
+msgid "Datasource %(name)s already exists"
+msgstr "数据源 %(name) 已经存在"
 
 #~ msgid "This endpoint requires the `all_datasource_access` permission"
 #~ msgstr ""
 
-#~ msgid "The datasource seems to have been deleted"
-#~ msgstr ""
+msgid "The datasource seems to have been deleted"
+msgstr "数据源可能已经被删除"
 
 #~ msgid "The access requests seem to have been deleted"
 #~ msgstr ""
 
-#~ msgid "The user seems to have been deleted"
-#~ msgstr ""
+msgid "The user seems to have been deleted"
+msgstr "用户可能已经被删除"
 
-#~ msgid "You don't have access to this datasource"
-#~ msgstr ""
+msgid "You don't have access to this datasource"
+msgstr "您没有访问这个数据源的权限"
 
 #~ msgid ""
 #~ msgstr ""
 
-#~ msgid "Import Dashboards"
-#~ msgstr "导入仪表盘"
+msgid "Import Dashboards"
+msgstr "导入看板"
 
-#~ msgid "Manage"
-#~ msgstr "管理"
+msgid "Manage"
+msgstr "管理"
 
-#~ msgid "Databases"
-#~ msgstr "数据库"
+msgid "Databases"
+msgstr "数据库"
 
-#~ msgid "Access requests"
-#~ msgstr "访问请求"
+msgid "Access requests"
+msgstr "访问请求"
 
-#~ msgid "Security"
-#~ msgstr "安全"
+msgid "Security"
+msgstr "安全"
 
 #~ msgid "Click on a {} link to create a Slice"
 #~ msgstr ""
 
-#~ msgid "Action Log"
-#~ msgstr "操作日志"
+msgid "Action Log"
+msgstr "操作日志"
 
 #~ msgid "Access was requested"
 #~ msgstr ""
@@ -819,21 +821,14 @@ msgstr "查询搜索"
 #~ msgid "Can't find DruidCluster with cluster_name = '%(name)s'"
 #~ msgstr ""
 
-#~ msgid "CSS Templates"
-#~ msgstr "CSS模板"
+msgid "CSS Templates"
+msgstr "CSS模板"
 
-#~ msgid "SQL Lab"
-#~ msgstr "SQL工具箱"
+msgid "SQL Lab"
+msgstr "SQL工具箱"
 
-#~ msgid "Queries"
-#~ msgstr "查询"
+msgid "Queries"
+msgstr "查询"
 
-#~ msgid "Saved Queries"
-#~ msgstr "已保存查询"
-
-#~ msgid "Import"
-#~ msgstr "导入"
-
-#~ msgid "Welcome!"
-#~ msgstr "欢迎！"
-
+msgid "Saved Queries"
+msgstr "保存的查询"

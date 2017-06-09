@@ -29,7 +29,7 @@ export const TIME_STAMP_OPTIONS = [
 export const controls = {
   datasource: {
     type: 'SelectControl',
-    label: 'Datasource',
+    label: '数据源',
     isLoading: true,
     clearable: false,
     default: null,
@@ -48,22 +48,22 @@ export const controls = {
 
   viz_type: {
     type: 'VizTypeControl',
-    label: 'Visualization Type',
+    label: '图表类型',
     default: 'table',
-    description: 'The type of visualization to display',
+    description: '要呈现的图表的类型',
   },
 
   metrics: {
     type: 'SelectControl',
     multi: true,
-    label: 'Metrics',
+    label: '度量',
     validators: [v.nonEmpty],
     default: control =>
       control.choices && control.choices.length > 0 ? [control.choices[0][0]] : null,
     mapStateToProps: state => ({
       choices: (state.datasource) ? state.datasource.metrics_combo : [],
     }),
-    description: 'One or many metrics to display',
+    description: '一个或多个度量',
   },
   y_axis_bounds: {
     type: 'BoundsControl',
@@ -79,9 +79,9 @@ export const controls = {
   order_by_cols: {
     type: 'SelectControl',
     multi: true,
-    label: 'Ordering',
+    label: '排序',
     default: [],
-    description: 'One or many metrics to display',
+    description: '一个或多个度量',
     mapStateToProps: state => ({
       choices: (state.datasource) ? state.datasource.order_by_choices : [],
     }),
@@ -89,9 +89,9 @@ export const controls = {
 
   metric: {
     type: 'SelectControl',
-    label: 'Metric',
+    label: '度量',
     clearable: false,
-    description: 'Choose the metric',
+    description: '选择度量',
     default: control =>
       control.choices && control.choices.length > 0 ? control.choices[0][0] : null,
     mapStateToProps: state => ({
@@ -101,10 +101,10 @@ export const controls = {
 
   metric_2: {
     type: 'SelectControl',
-    label: 'Right Axis Metric',
+    label: '右轴度量',
     choices: [],
     default: [],
-    description: 'Choose a metric for right axis',
+    description: '选择一个右轴的度量',
     mapStateToProps: state => ({
       choices: (state.datasource) ? state.datasource.metrics_combo : [],
     }),
@@ -112,7 +112,7 @@ export const controls = {
 
   stacked_style: {
     type: 'SelectControl',
-    label: 'Stacked Style',
+    label: '堆积类型',
     choices: [
       ['stack', 'stack'],
       ['stream', 'stream'],
@@ -124,7 +124,7 @@ export const controls = {
 
   linear_color_scheme: {
     type: 'SelectControl',
-    label: 'Linear Color Scheme',
+    label: '渐变颜色',
     choices: [
       ['fire', 'fire'],
       ['blue_white_yellow', 'blue/white/yellow'],
@@ -163,7 +163,7 @@ export const controls = {
 
   canvas_image_rendering: {
     type: 'SelectControl',
-    label: 'Rendering',
+    label: '渲染',
     choices: [
       ['pixelated', 'pixelated (Sharp)'],
       ['auto', 'auto (Smooth)'],
@@ -175,7 +175,7 @@ export const controls = {
 
   xscale_interval: {
     type: 'SelectControl',
-    label: 'XScale Interval',
+    label: 'X轴缩放间隔',
     choices: formatSelectOptionsForRange(1, 50),
     default: '1',
     description: 'Number of steps to take between ticks when ' +
@@ -184,7 +184,7 @@ export const controls = {
 
   yscale_interval: {
     type: 'SelectControl',
-    label: 'YScale Interval',
+    label: 'Y轴缩放间隔',
     choices: formatSelectOptionsForRange(1, 50),
     default: null,
     description: 'Number of steps to take between ticks when ' +
@@ -193,14 +193,14 @@ export const controls = {
 
   include_time: {
     type: 'CheckboxControl',
-    label: 'Include Time',
+    label: '包含时间',
     description: 'Whether to include the time granularity as defined in the time section',
     default: false,
   },
 
   bar_stacked: {
     type: 'CheckboxControl',
-    label: 'Stacked Bars',
+    label: '堆积柱子',
     renderTrigger: true,
     default: false,
     description: null,
@@ -208,7 +208,7 @@ export const controls = {
 
   show_markers: {
     type: 'CheckboxControl',
-    label: 'Show Markers',
+    label: '显示标记',
     renderTrigger: true,
     default: false,
     description: 'Show data points as circle markers on the lines',
@@ -216,7 +216,7 @@ export const controls = {
 
   show_bar_value: {
     type: 'CheckboxControl',
-    label: 'Bar Values',
+    label: '柱子值',
     default: false,
     renderTrigger: true,
     description: 'Show the value on top of the bar',
@@ -224,14 +224,14 @@ export const controls = {
 
   order_bars: {
     type: 'CheckboxControl',
-    label: 'Sort Bars',
+    label: '柱子排序',
     default: false,
     description: 'Sort bars by x labels.',
   },
 
   show_controls: {
     type: 'CheckboxControl',
-    label: 'Extra Controls',
+    label: '额外工具',
     renderTrigger: true,
     default: false,
     description: 'Whether to show extra controls or not. Extra controls ' +
@@ -253,7 +253,7 @@ export const controls = {
 
   include_series: {
     type: 'CheckboxControl',
-    label: 'Include Series',
+    label: '包含系列名',
     renderTrigger: true,
     default: false,
     description: 'Include series name as an axis',
@@ -261,7 +261,7 @@ export const controls = {
 
   secondary_metric: {
     type: 'SelectControl',
-    label: 'Color Metric',
+    label: '颜色度量',
     default: null,
     description: 'A metric to use for color',
     mapStateToProps: state => ({
@@ -293,7 +293,7 @@ export const controls = {
   },
   country_fieldtype: {
     type: 'SelectControl',
-    label: 'Country Field Type',
+    label: '国家属性类型',
     default: 'cca2',
     choices: [
       ['name', 'Full name'],
@@ -308,7 +308,7 @@ export const controls = {
   groupby: {
     type: 'SelectControl',
     multi: true,
-    label: 'Group by',
+    label: '分组',
     default: [],
     description: 'One or many controls to group by',
     mapStateToProps: state => ({
@@ -319,7 +319,7 @@ export const controls = {
   columns: {
     type: 'SelectControl',
     multi: true,
-    label: 'Columns',
+    label: '列',
     mapStateToProps: state => ({
       choices: (state.datasource) ? state.datasource.gb_cols : [],
     }),
@@ -330,7 +330,7 @@ export const controls = {
   all_columns: {
     type: 'SelectControl',
     multi: true,
-    label: 'Columns',
+    label: '列',
     default: [],
     description: 'Columns to display',
     mapStateToProps: state => ({
@@ -374,7 +374,7 @@ export const controls = {
   bottom_margin: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Bottom Margin',
+    label: '底部边距',
     choices: formatSelectOptions(['auto', 50, 75, 100, 125, 150, 200]),
     default: 'auto',
     description: 'Bottom marging, in pixels, allowing for more room for axis labels',
@@ -383,7 +383,7 @@ export const controls = {
   granularity: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Time Granularity',
+    label: '时间粒度',
     default: 'one day',
     choices: formatSelectOptions([
       'all',
@@ -453,7 +453,7 @@ export const controls = {
 
   granularity_sqla: {
     type: 'SelectControl',
-    label: 'Time Column',
+    label: '时间列',
     default: control =>
       control.choices && control.choices.length > 0 ? control.choices[0][0] : null,
     description: 'The time column for the visualization. Note that you ' +
@@ -468,7 +468,7 @@ export const controls = {
 
   time_grain_sqla: {
     type: 'SelectControl',
-    label: 'Time Grain',
+    label: '时间粒度',
     default: control => control.choices && control.choices.length ? control.choices[0][0] : null,
     description: 'The time granularity for the visualization. This ' +
     'applies a date transformation to alter ' +
@@ -483,7 +483,7 @@ export const controls = {
   resample_rule: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Resample Rule',
+    label: '采样规则',
     default: null,
     choices: formatSelectOptions(['', '1T', '1H', '1D', '7D', '1M', '1AS']),
     description: 'Pandas resample rule',
@@ -492,7 +492,7 @@ export const controls = {
   resample_how: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Resample How',
+    label: '采样方式',
     default: null,
     choices: formatSelectOptions(['', 'mean', 'sum', 'median']),
     description: 'Pandas resample how',
@@ -501,7 +501,7 @@ export const controls = {
   resample_fillmethod: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Resample Fill Method',
+    label: '采样填充方法',
     default: null,
     choices: formatSelectOptions(['', 'ffill', 'bfill']),
     description: 'Pandas resample fill method',
@@ -510,7 +510,7 @@ export const controls = {
   since: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Since',
+    label: '从',
     default: '7 days ago',
     choices: formatSelectOptions([
       '1 hour ago',
@@ -529,7 +529,7 @@ export const controls = {
   until: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Until',
+    label: '到',
     default: 'now',
     choices: formatSelectOptions([
       'now',
@@ -544,7 +544,7 @@ export const controls = {
   max_bubble_size: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Max Bubble Size',
+    label: '最大的气泡尺寸',
     default: '25',
     choices: formatSelectOptions(['5', '10', '15', '25', '50', '75', '100']),
   },
@@ -565,7 +565,7 @@ export const controls = {
 
   treemap_ratio: {
     type: 'TextControl',
-    label: 'Ratio',
+    label: '比例',
     isFloat: true,
     default: 0.5 * (1 + Math.sqrt(5)),  // d3 default, golden ratio
     description: 'Target aspect ratio for treemap tiles.',
@@ -574,7 +574,7 @@ export const controls = {
   number_format: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Number format',
+    label: '数字格式',
     renderTrigger: true,
     default: '.3s',
     choices: D3_TIME_FORMAT_OPTIONS,
@@ -584,7 +584,7 @@ export const controls = {
   row_limit: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Row limit',
+    label: '行数限制',
     default: null,
     choices: formatSelectOptions(ROW_LIMIT_OPTIONS),
   },
@@ -592,7 +592,7 @@ export const controls = {
   limit: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Series limit',
+    label: '系列限制',
     choices: formatSelectOptions(SERIES_LIMITS),
     default: 50,
     description: 'Limits the number of time series that get displayed',
@@ -600,7 +600,7 @@ export const controls = {
 
   timeseries_limit_metric: {
     type: 'SelectControl',
-    label: 'Sort By',
+    label: '排序',
     default: null,
     description: 'Metric used to define the top series',
     mapStateToProps: state => ({
@@ -610,7 +610,7 @@ export const controls = {
 
   rolling_type: {
     type: 'SelectControl',
-    label: 'Rolling',
+    label: '滚动',
     default: 'None',
     choices: formatSelectOptions(['None', 'mean', 'sum', 'std', 'cumsum']),
     description: 'Defines a rolling window function to apply, works along ' +
@@ -619,7 +619,7 @@ export const controls = {
 
   rolling_periods: {
     type: 'TextControl',
-    label: 'Periods',
+    label: '周期',
     isInt: true,
     description: 'Defines the size of the rolling window function, ' +
     'relative to the time granularity selected',
@@ -627,7 +627,7 @@ export const controls = {
 
   series: {
     type: 'SelectControl',
-    label: 'Series',
+    label: '系列',
     default: null,
     description: 'Defines the grouping of entities. ' +
     'Each series is shown as a specific color on the chart and ' +
@@ -649,7 +649,7 @@ export const controls = {
 
   x: {
     type: 'SelectControl',
-    label: 'X Axis',
+    label: 'X轴',
     default: null,
     description: 'Metric assigned to the [X] axis',
     mapStateToProps: state => ({
@@ -659,7 +659,7 @@ export const controls = {
 
   y: {
     type: 'SelectControl',
-    label: 'Y Axis',
+    label: 'Y轴',
     default: null,
     description: 'Metric assigned to the [Y] axis',
     mapStateToProps: state => ({
@@ -669,7 +669,7 @@ export const controls = {
 
   size: {
     type: 'SelectControl',
-    label: 'Bubble Size',
+    label: '气泡大小',
     default: null,
     mapStateToProps: state => ({
       choices: (state.datasource) ? state.datasource.metrics_combo : [],
@@ -686,21 +686,21 @@ export const controls = {
 
   x_axis_label: {
     type: 'TextControl',
-    label: 'X Axis Label',
+    label: 'X轴名',
     renderTrigger: true,
     default: '',
   },
 
   y_axis_label: {
     type: 'TextControl',
-    label: 'Y Axis Label',
+    label: 'Y轴名',
     renderTrigger: true,
     default: '',
   },
 
   where: {
     type: 'TextControl',
-    label: 'Custom WHERE clause',
+    label: '自定义WHERE条件',
     default: '',
     description: 'The text in this box gets included in your query\'s WHERE ' +
     'clause, as an AND to other criteria. You can include ' +
@@ -710,7 +710,7 @@ export const controls = {
 
   having: {
     type: 'TextControl',
-    label: 'Custom HAVING clause',
+    label: '自定义HAVING条件',
     default: '',
     description: 'The text in this box gets included in your query\'s HAVING ' +
     'clause, as an AND to other criteria. You can include ' +
@@ -720,21 +720,21 @@ export const controls = {
 
   compare_lag: {
     type: 'TextControl',
-    label: 'Comparison Period Lag',
+    label: '对比周期',
     isInt: true,
     description: 'Based on granularity, number of time periods to compare against',
   },
 
   compare_suffix: {
     type: 'TextControl',
-    label: 'Comparison suffix',
+    label: '对比后缀',
     description: 'Suffix to apply after the percentage display',
   },
 
   table_timestamp_format: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Table Timestamp Format',
+    label: '表格时间格式',
     default: 'smart_date',
     choices: TIME_STAMP_OPTIONS,
     description: 'Timestamp Format',
@@ -743,7 +743,7 @@ export const controls = {
   series_height: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Series Height',
+    label: '系列高度',
     default: '25',
     choices: formatSelectOptions(['10', '25', '40', '50', '75', '100', '150', '200']),
     description: 'Pixel height of each series',
@@ -752,7 +752,7 @@ export const controls = {
   page_length: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Page Length',
+    label: '一页行数',
     default: 0,
     choices: formatSelectOptions([0, 10, 25, 40, 50, 75, 100, 150, 200]),
     description: 'Rows per page, 0 means no pagination',
@@ -761,7 +761,7 @@ export const controls = {
   x_axis_format: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'X Axis Format',
+    label: 'X轴格式',
     renderTrigger: true,
     default: 'smart_date',
     choices: TIME_STAMP_OPTIONS,
@@ -771,7 +771,7 @@ export const controls = {
   y_axis_format: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Y Axis Format',
+    label: 'Y轴格式',
     renderTrigger: true,
     default: '.3s',
     choices: D3_TIME_FORMAT_OPTIONS,
@@ -781,7 +781,7 @@ export const controls = {
   y_axis_2_format: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Right Axis Format',
+    label: '右轴格式',
     default: '.3s',
     choices: D3_TIME_FORMAT_OPTIONS,
     description: D3_FORMAT_DOCS,
@@ -789,7 +789,7 @@ export const controls = {
 
   markup_type: {
     type: 'SelectControl',
-    label: 'Markup Type',
+    label: '标记类型',
     choices: formatSelectOptions(['markdown', 'html']),
     default: 'markdown',
     description: 'Pick your favorite markup language',
@@ -797,7 +797,7 @@ export const controls = {
 
   rotation: {
     type: 'SelectControl',
-    label: 'Rotation',
+    label: '旋转',
     choices: formatSelectOptions(['random', 'flat', 'square']),
     default: 'random',
     description: 'Rotation to apply to words in the cloud',
@@ -805,7 +805,7 @@ export const controls = {
 
   line_interpolation: {
     type: 'SelectControl',
-    label: 'Line Style',
+    label: '折线类型',
     renderTrigger: true,
     choices: formatSelectOptions(['linear', 'basis', 'cardinal',
       'monotone', 'step-before', 'step-after']),
@@ -815,7 +815,7 @@ export const controls = {
 
   pie_label_type: {
     type: 'SelectControl',
-    label: 'Label Type',
+    label: '标签类型',
     default: 'key',
     choices: [
       ['key', 'Category Name'],
@@ -827,14 +827,14 @@ export const controls = {
 
   code: {
     type: 'TextAreaControl',
-    label: 'Code',
+    label: '内容',
     description: 'Put your code here',
     default: '',
   },
 
   pandas_aggfunc: {
     type: 'SelectControl',
-    label: 'Aggregation function',
+    label: '聚合函数',
     clearable: false,
     choices: formatSelectOptions([
       'sum',
@@ -853,13 +853,13 @@ export const controls = {
   size_from: {
     type: 'TextControl',
     isInt: true,
-    label: 'Font Size From',
+    label: '最小文字大小',
     default: '20',
     description: 'Font size for the smallest value in the list',
   },
 
   size_to: {
-    type: 'TextControl',
+    type: '最大文字大小',
     isInt: true,
     label: 'Font Size To',
     default: '150',
@@ -868,7 +868,7 @@ export const controls = {
 
   instant_filtering: {
     type: 'CheckboxControl',
-    label: 'Instant Filtering',
+    label: '立即生效',
     renderTrigger: true,
     default: true,
     description: (
@@ -879,7 +879,7 @@ export const controls = {
 
   show_brush: {
     type: 'CheckboxControl',
-    label: 'Range Filter',
+    label: '范围筛选',
     renderTrigger: true,
     default: false,
     description: 'Whether to display the time range interactive selector',
@@ -887,21 +887,21 @@ export const controls = {
 
   date_filter: {
     type: 'CheckboxControl',
-    label: 'Date Filter',
+    label: '时间筛选',
     default: false,
     description: 'Whether to include a time filter',
   },
 
   show_datatable: {
     type: 'CheckboxControl',
-    label: 'Data Table',
+    label: '数据表',
     default: false,
     description: 'Whether to display the interactive data table',
   },
 
   include_search: {
     type: 'CheckboxControl',
-    label: 'Search Box',
+    label: '搜索框',
     renderTrigger: true,
     default: false,
     description: 'Whether to include a client side search box',
@@ -909,14 +909,14 @@ export const controls = {
 
   table_filter: {
     type: 'CheckboxControl',
-    label: 'Table Filter',
+    label: '表格筛选框',
     default: false,
     description: 'Whether to apply filter when table cell is clicked',
   },
 
   show_bubbles: {
     type: 'CheckboxControl',
-    label: 'Show Bubbles',
+    label: '显示气泡',
     default: false,
     renderTrigger: true,
     description: 'Whether to display bubbles on top of countries',
@@ -924,7 +924,7 @@ export const controls = {
 
   show_legend: {
     type: 'CheckboxControl',
-    label: 'Legend',
+    label: '图例',
     renderTrigger: true,
     default: true,
     description: 'Whether to display the legend (toggles)',
@@ -932,7 +932,7 @@ export const controls = {
 
   x_axis_showminmax: {
     type: 'CheckboxControl',
-    label: 'X bounds',
+    label: 'X轴范围',
     renderTrigger: true,
     default: true,
     description: 'Whether to display the min and max values of the X axis',
@@ -940,16 +940,24 @@ export const controls = {
 
   rich_tooltip: {
     type: 'CheckboxControl',
-    label: 'Rich Tooltip',
+    label: '详细提示',
     renderTrigger: true,
     default: true,
     description: 'The rich tooltip shows a list of all series for that ' +
-    'point in time',
+                 'point in time',
+  },
+
+  y_axis_zero: {
+    type: 'CheckboxControl',
+    label: 'Y轴从0开始',
+    default: false,
+    renderTrigger: true,
+    description: 'Force the Y axis to start at 0 instead of the minimum value',
   },
 
   y_log_scale: {
     type: 'CheckboxControl',
-    label: 'Y Log Scale',
+    label: 'Y轴默认缩放',
     default: false,
     renderTrigger: true,
     description: 'Use a log scale for the Y axis',
@@ -957,7 +965,7 @@ export const controls = {
 
   x_log_scale: {
     type: 'CheckboxControl',
-    label: 'X Log Scale',
+    label: 'X轴默认缩放',
     default: false,
     renderTrigger: true,
     description: 'Use a log scale for the X axis',
@@ -965,7 +973,7 @@ export const controls = {
 
   donut: {
     type: 'CheckboxControl',
-    label: 'Donut',
+    label: '空心',
     default: false,
     renderTrigger: true,
     description: 'Do you want a donut or a pie?',
@@ -973,7 +981,7 @@ export const controls = {
 
   labels_outside: {
     type: 'CheckboxControl',
-    label: 'Put labels outside',
+    label: '吧标签放在外边',
     default: true,
     renderTrigger: true,
     description: 'Put the labels outside the pie?',
@@ -981,14 +989,14 @@ export const controls = {
 
   contribution: {
     type: 'CheckboxControl',
-    label: 'Contribution',
+    label: '贡献',
     default: false,
     description: 'Compute the contribution to the total',
   },
 
   num_period_compare: {
     type: 'TextControl',
-    label: 'Period Ratio',
+    label: '周期系数',
     default: '',
     isInt: true,
     description: '[integer] Number of period to compare against, ' +
@@ -997,7 +1005,7 @@ export const controls = {
 
   period_ratio_type: {
     type: 'SelectControl',
-    label: 'Period Ratio Type',
+    label: '周期系数类型',
     default: 'growth',
     choices: formatSelectOptions(['factor', 'growth', 'value']),
     description: '`factor` means (new/previous), `growth` is ' +
@@ -1006,7 +1014,7 @@ export const controls = {
 
   time_compare: {
     type: 'TextControl',
-    label: 'Time Shift',
+    label: '时间偏移',
     default: null,
     description: 'Overlay a timeseries from a ' +
     'relative time period. Expects relative time delta ' +
@@ -1016,14 +1024,14 @@ export const controls = {
 
   subheader: {
     type: 'TextControl',
-    label: 'Subheader',
+    label: '副标题',
     description: 'Description text that shows up below your Big Number',
   },
 
   mapbox_label: {
     type: 'SelectControl',
     multi: true,
-    label: 'label',
+    label: '标签',
     default: [],
     description: '`count` is COUNT(*) if a group by is used. ' +
     'Numerical columns will be aggregated with the aggregator. ' +
@@ -1036,7 +1044,7 @@ export const controls = {
 
   mapbox_style: {
     type: 'SelectControl',
-    label: 'Map Style',
+    label: '地图类型',
     choices: [
       ['mapbox://styles/mapbox/streets-v9', 'Streets'],
       ['mapbox://styles/mapbox/dark-v9', 'Dark'],
@@ -1052,7 +1060,7 @@ export const controls = {
   clustering_radius: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'Clustering Radius',
+    label: '簇半径',
     default: '60',
     choices: formatSelectOptions([
       '0',
@@ -1072,7 +1080,7 @@ export const controls = {
 
   point_radius: {
     type: 'SelectControl',
-    label: 'Point Radius',
+    label: '点半径',
     default: 'Auto',
     description: 'The radius of individual points (ones that are not in a cluster). ' +
     'Either a numerical column or `Auto`, which scales the point based ' +
@@ -1084,7 +1092,7 @@ export const controls = {
 
   point_radius_unit: {
     type: 'SelectControl',
-    label: 'Point Radius Unit',
+    label: '点半径单位',
     default: 'Pixels',
     choices: formatSelectOptions(['Pixels', 'Miles', 'Kilometers']),
     description: 'The unit of measure for the specified point radius',
@@ -1092,7 +1100,7 @@ export const controls = {
 
   global_opacity: {
     type: 'TextControl',
-    label: 'Opacity',
+    label: '透明度',
     default: 1,
     isFloat: true,
     description: 'Opacity of all clusters, points, and labels. ' +
@@ -1101,7 +1109,7 @@ export const controls = {
 
   viewport_zoom: {
     type: 'TextControl',
-    label: 'Zoom',
+    label: '缩放',
     isFloat: true,
     default: 11,
     description: 'Zoom level of the map',
@@ -1110,7 +1118,7 @@ export const controls = {
 
   viewport_latitude: {
     type: 'TextControl',
-    label: 'Default latitude',
+    label: '默认纬度',
     default: 37.772123,
     isFloat: true,
     description: 'Latitude of default viewport',
@@ -1119,7 +1127,7 @@ export const controls = {
 
   viewport_longitude: {
     type: 'TextControl',
-    label: 'Default longitude',
+    label: '为人经度',
     default: -122.405293,
     isFloat: true,
     description: 'Longitude of default viewport',
@@ -1128,7 +1136,7 @@ export const controls = {
 
   render_while_dragging: {
     type: 'CheckboxControl',
-    label: 'Live render',
+    label: '实时渲染',
     default: true,
     description: 'Points and clusters will update as viewport is being changed',
   },
@@ -1136,7 +1144,7 @@ export const controls = {
   mapbox_color: {
     type: 'SelectControl',
     freeForm: true,
-    label: 'RGB Color',
+    label: 'RGB颜色',
     default: 'rgb(0, 122, 135)',
     choices: [
       ['rgb(0, 139, 139)', 'Dark Cyan'],
@@ -1151,42 +1159,42 @@ export const controls = {
 
   ranges: {
     type: 'TextControl',
-    label: 'Ranges',
+    label: '范围',
     default: '',
     description: 'Ranges to highlight with shading',
   },
 
   range_labels: {
     type: 'TextControl',
-    label: 'Range labels',
+    label: '范围标签',
     default: '',
     description: 'Labels for the ranges',
   },
 
   markers: {
     type: 'TextControl',
-    label: 'Markers',
+    label: '标记',
     default: '',
     description: 'List of values to mark with triangles',
   },
 
   marker_labels: {
     type: 'TextControl',
-    label: 'Marker labels',
+    label: '标记名',
     default: '',
     description: 'Labels for the markers',
   },
 
   marker_lines: {
     type: 'TextControl',
-    label: 'Marker lines',
+    label: '标记线',
     default: '',
     description: 'List of values to mark with lines',
   },
 
   marker_line_labels: {
     type: 'TextControl',
-    label: 'Marker line labels',
+    label: '标记线名',
     default: '',
     description: 'Labels for the marker lines',
   },
@@ -1215,14 +1223,14 @@ export const controls = {
 
   slice_id: {
     type: 'HiddenControl',
-    label: 'Slice ID',
+    label: '图表ID',
     hidden: true,
     description: 'The id of the active slice',
   },
 
   cache_timeout: {
     type: 'HiddenControl',
-    label: 'Cache Timeout (seconds)',
+    label: '缓存时间 (秒)',
     hidden: true,
     description: 'The number of seconds before expiring the cache',
   },

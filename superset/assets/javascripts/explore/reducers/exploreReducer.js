@@ -96,13 +96,13 @@ export const exploreReducer = function (state, action) {
       return Object.assign({}, state,
         {
           chartStatus: 'stopped',
-          chartAlert: 'Updating chart was stopped',
+          chartAlert: '更新图表已经停止',
         });
     },
     [actions.CHART_RENDERING_FAILED]() {
       return Object.assign({}, state, {
         chartStatus: 'failed',
-        chartAlert: 'An error occurred while rendering the visualization: ' + action.error,
+        chartAlert: '渲染图表时发生了一个错误: ' + action.error,
       });
     },
     [actions.TRIGGER_QUERY]() {
@@ -123,7 +123,7 @@ export const exploreReducer = function (state, action) {
     [actions.CHART_UPDATE_FAILED]() {
       return Object.assign({}, state, {
         chartStatus: 'failed',
-        chartAlert: action.queryResponse ? action.queryResponse.error : 'Network error.',
+        chartAlert: action.queryResponse ? action.queryResponse.error : '网络错误.',
         chartUpdateEndTime: now(),
         queryResponse: action.queryResponse,
       });

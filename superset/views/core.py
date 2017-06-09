@@ -1762,6 +1762,9 @@ class Superset(BaseSupersetView):
     @expose("/sqllab_viz/", methods=['POST'])
     @log_this
     def sqllab_viz(self):
+        import sys
+        reload(sys)
+        sys.setdefaultencoding('utf8')
         SqlaTable = ConnectorRegistry.sources['table']
         data = json.loads(request.form.get('data'))
         table_name = data.get('datasourceName')

@@ -32,7 +32,7 @@ export default function QueryAndSaveBtns(
       onClick={onStop}
       bsStyle="warning"
     >
-      <i className="fa fa-stop-circle-o" /> Stop
+      <i className="fa fa-stop-circle-o" /> 停止
     </Button>
   ) : (
     <Button
@@ -41,7 +41,7 @@ export default function QueryAndSaveBtns(
       bsStyle={qryButtonStyle}
       disabled={!!errorMessage}
     >
-      <i className="fa fa-bolt" /> Query
+      <i className="fa fa-bolt" /> 查询
     </Button>
   );
 
@@ -56,7 +56,7 @@ export default function QueryAndSaveBtns(
           disabled={saveButtonDisabled}
           onClick={onSave}
         >
-          <i className="fa fa-plus-circle" /> Save
+          <i className="fa fa-plus-circle" /> 保存
         </Button>
       </ButtonGroup>
       {errorMessage &&
