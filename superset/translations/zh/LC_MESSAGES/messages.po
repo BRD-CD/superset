@@ -692,6 +692,9 @@ msgid "Owners is a list of users who can alter the dashboard."
 msgstr "“所有者”是一组可以修改看板的用户列表"
 
 #: superset/views/core.py:444 superset/views/core.py:511
+msgid "Dashboards"
+msgstr "看板"
+
 msgid "Dashboard"
 msgstr "看板"
 

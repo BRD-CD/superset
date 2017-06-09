@@ -180,6 +180,9 @@ class DatabaseView(SupersetModelView, DeleteMixin):  # noqa
     search_exclude_columns = (
         'password', 'tables', 'created_by', 'changed_by', 'queries',
         'saved_queries', )
+    order_columns = [
+        'database_name','allow_run_sync','allow_run_async','allow_dml','modified'
+    ]
     edit_columns = add_columns
     show_columns = [
         'tables',
@@ -241,6 +244,9 @@ class DatabaseView(SupersetModelView, DeleteMixin):  # noqa
         'sqlalchemy_uri': _("SQLAlchemy URI"),
         'cache_timeout': _("Cache Timeout"),
         'extra': _("Extra"),
+        'backend':_("Backend"),
+        'allow_run_sync':_("Allow Run Sync"),
+        'modified':_("Modified")
     }
 
     def pre_add(self, db):
