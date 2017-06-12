@@ -180,9 +180,9 @@ class DatabaseView(SupersetModelView, DeleteMixin):  # noqa
     search_exclude_columns = (
         'password', 'tables', 'created_by', 'changed_by', 'queries',
         'saved_queries', )
-    order_columns = [
-        'database_name','allow_run_sync','allow_run_async','allow_dml','modified'
-    ]
+    # order_columns = [
+    #     'database_name','allow_run_sync','allow_run_async','allow_dml','modified'
+    # ]
     edit_columns = add_columns
     show_columns = [
         'tables',
@@ -261,6 +261,8 @@ class DatabaseView(SupersetModelView, DeleteMixin):  # noqa
 
     def _delete(self, pk):
         DeleteMixin._delete(self, pk)
+
+
 
 appbuilder.add_link(
     'Import Dashboards',
@@ -389,6 +391,12 @@ class SliceModelView(SupersetModelView, DeleteMixin):  # noqa
                 'datasources': sorted(datasources),
             }),
         )
+    def _get_list_widget(self,
+                         **args):
+        
+        if args.get('order_column') == 'slice_link':
+            args['order_column'] = 'slice_name'
+        return super(SliceModelView, self)._get_list_widget(**args)
 
 appbuilder.add_view(
     SliceModelView,

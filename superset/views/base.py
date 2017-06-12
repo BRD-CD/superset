@@ -3,7 +3,7 @@ import json
 import logging
 import traceback
 
-from flask import g, redirect, Response, flash, abort
+from flask import g, redirect, Response, flash, abort, request
 from flask_babel import gettext as __
 
 from flask_appbuilder import BaseView
@@ -189,6 +189,14 @@ class BaseSupersetView(BaseView):
 
 class SupersetModelView(ModelView):
     page_size = 100
+
+    def _get_list_widget(self,
+                         **args):
+        if args.get('order_column') == u'creator':
+            args['order_column'] = u'created_by_fk'
+        if args.get('order_column') == u'backend':
+            args['order_column'] = u'sqlalchemy_uri'
+        return super(SupersetModelView, self)._get_list_widget(**args)
 
 
 class ListWidgetWithCheckboxes(ListWidget):

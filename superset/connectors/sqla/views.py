@@ -254,6 +254,14 @@ class TableModelView(SupersetModelView, DeleteMixin):  # noqa
             return resp
         return redirect('/superset/explore/table/{}/'.format(pk))
 
+    def _get_list_widget(self,
+                         **args):
+        if args.get('order_column') == 'link':
+            args['order_column'] = 'table_name';
+        if args.get('order_column') == 'database':
+            args['order_column'] = 'database.database_name'
+        return super(TableModelView, self)._get_list_widget(**args)
+
 appbuilder.add_view(
     TableModelView,
     "Tables",
