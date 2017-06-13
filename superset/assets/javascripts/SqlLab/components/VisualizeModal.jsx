@@ -165,8 +165,7 @@ class VisualizeModal extends React.PureComponent {
           formData.groupby = [mainGroupBy.name];
         }
         notify.info('Creating a data source and popping a new tab');
-
-        window.open(getExploreUrl(formData));
+        location.href=getExploreUrl(formData);
       })
       .fail(() => {
         notify.error(this.props.errorMessage);
@@ -240,7 +239,7 @@ class VisualizeModal extends React.PureComponent {
       <div className="VisualizeModal">
         <Modal show={this.props.show} onHide={this.props.onHide}>
           <Modal.Header closeButton>
-            <Modal.Title>Visualize</Modal.Title>
+            <Modal.Title>可视化</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {alerts}

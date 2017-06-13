@@ -1,3 +1,5 @@
+# coding:utf-8
+
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -180,9 +182,6 @@ class DatabaseView(SupersetModelView, DeleteMixin):  # noqa
     search_exclude_columns = (
         'password', 'tables', 'created_by', 'changed_by', 'queries',
         'saved_queries', )
-    # order_columns = [
-    #     'database_name','allow_run_sync','allow_run_async','allow_dml','modified'
-    # ]
     edit_columns = add_columns
     show_columns = [
         'tables',
@@ -201,11 +200,11 @@ class DatabaseView(SupersetModelView, DeleteMixin):  # noqa
     base_order = ('changed_on', 'desc')
     description_columns = {
         'sqlalchemy_uri': utils.markdown(
-            "Refer to the "
+            u"跳转到 "
             "[SqlAlchemy docs]"
             "(http://docs.sqlalchemy.org/en/rel_1_0/core/engines.html#"
             "database-urls) "
-            "for more information on how to structure your URI.", True),
+            u"获取更多的信息来确定你的URI如何设置", True),
         'expose_in_sqllab': _("Expose this DB in SQL Lab"),
         'allow_run_sync': _(
             "Allow users to run synchronous queries, this is the default "
@@ -246,7 +245,8 @@ class DatabaseView(SupersetModelView, DeleteMixin):  # noqa
         'extra': _("Extra"),
         'backend':_("Backend"),
         'allow_run_sync':_("Allow Run Sync"),
-        'modified':_("Modified")
+        'modified':_("Modified"),
+        'allow_run_async':_("Allow Run Async"),
     }
 
     def pre_add(self, db):

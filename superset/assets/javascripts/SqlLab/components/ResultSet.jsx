@@ -74,7 +74,7 @@ export default class ResultSet extends React.PureComponent {
             bsSize="small"
             onClick={this.showModal.bind(this)}
           >
-            <i className="fa fa-line-chart m-l-1" /> Visualize
+            <i className="fa fa-line-chart m-l-1" /> 可视化
           </Button>
         );
       }

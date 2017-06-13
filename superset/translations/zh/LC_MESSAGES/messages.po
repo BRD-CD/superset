@@ -553,30 +553,30 @@ msgstr "测试连接"
 
 #: superset/views/core.py:206
 msgid "Expose this DB in SQL Lab"
-msgstr "在SQL工具箱中开发此数据库"
+msgstr "在SQL工具箱中开放此数据库"
 
 #: superset/views/core.py:207
 msgid ""
 "Allow users to run synchronous queries, this is the default and should "
 "work well for queries that can be executed within a web request scope "
 "(<~1 minute)"
-msgstr ""
+msgstr "允许用户同步执行查询，这是默认选项，在查询时间小于1分钟的情况下比较合适"
 
 #: superset/views/core.py:211
 msgid ""
 "Allow users to run queries, against an async backend. This assumes that "
 "you have a Celery worker setup as well as a results backend."
-msgstr ""
+msgstr "允许用户异步在后台执行查询，适合普遍查询比较慢的情况，查询会在后台继续"
 
 #: superset/views/core.py:215
 msgid "Allow CREATE TABLE AS option in SQL Lab"
-msgstr ""
+msgstr "允许在SQL工具箱中创建表"
 
 #: superset/views/core.py:216
 msgid ""
 "Allow users to run non-SELECT statements (UPDATE, DELETE, CREATE, ...) in"
 " SQL Lab"
-msgstr ""
+msgstr "允许在SQL工具箱中执行DML操作，即删除、修改、创建表的语句"
 
 #: superset/views/core.py:220
 msgid ""
@@ -590,7 +590,7 @@ msgstr "在SQL工具箱子中开放"
 
 #: superset/views/core.py:235
 msgid "Allow CREATE TABLE AS"
-msgstr ""
+msgstr "允许创建表"
 
 
 #: superset/views/core.py:237
@@ -605,6 +605,12 @@ msgstr "作者"
 #: superset/views/core.py:241
 msgid "SQLAlchemy URI"
 msgstr ""
+
+msgid "Refer to the"
+msgstr "跳转到"
+
+msgid "for more information on how to structure your URI."
+msgstr "获取更多的信息以得知如何配置您的URI"
 
 #: superset/views/core.py:243
 msgid "Extra"
