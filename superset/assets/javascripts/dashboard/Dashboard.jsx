@@ -32,7 +32,7 @@ export function getInitialState(boostrapData) {
 }
 
 function unload() {
-  const message = '您右未保存的修改.';
+  const message = '您有未保存的修改.';
   window.event.returnValue = message; // Gecko + IE
   return message; // Gecko + Webkit, Safari, Chrome etc.
 }

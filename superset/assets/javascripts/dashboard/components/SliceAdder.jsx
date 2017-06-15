@@ -101,6 +101,8 @@ class SliceAdder extends React.Component {
   render() {
     const hideLoad = this.state.slicesLoaded || this.errored;
     let enableAddSlice = this.state.selectionMap && Object.keys(this.state.selectionMap);
+    console.log(this.state)
+
     if (enableAddSlice) {
       enableAddSlice = enableAddSlice.some(function (key) {
         return this.state.selectionMap[key];

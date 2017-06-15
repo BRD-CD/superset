@@ -1720,6 +1720,56 @@ class Superset(BaseSupersetView):
             bootstrap_data=json.dumps(bootstrap_data),
         )
 
+    @expose("/dashboard/share/<dashboard_id>/")
+    def dashboard_share(self, dashboard_id):
+        """Server side rendering for a dashboard"""
+        _permission_name='share'
+        session = db.session()
+        qry = session.query(models.Dashboard)
+        if dashboard_id.isdigit():
+            qry = qry.filter_by(id=int(dashboard_id))
+        else:
+            qry = qry.filter_by(slug=dashboard_id)
+
+        dash = qry.one()
+        datasources = set()
+        for slc in dash.slices:
+            datasource = slc.datasource
+            if datasource:
+                datasources.add(datasource)
+
+
+        # Hack to log the dashboard_id properly, even when getting a slug
+        @log_this
+        def dashboard(**kwargs):  # noqa
+            pass
+
+        dashboard(dashboard_id=dash.id)
+
+        dash_edit_perm = check_ownership(dash, raise_if_false=False)
+        dash_save_perm = \
+            dash_edit_perm and self.can_access('can_save_dash', 'Superset')
+
+        dashboard_data = dash.data
+        dashboard_data.update({
+            'standalone_mode': request.args.get("standalone") == "true",
+            'dash_save_perm': dash_save_perm,
+            'dash_edit_perm': dash_edit_perm,
+        })
+
+        bootstrap_data = {
+            'user_id': g.user.get_id(),
+            'dashboard_data': dashboard_data,
+            'datasources': {ds.uid: ds.data for ds in datasources},
+        }
+
+        return self.render_template(
+            "superset/dashboard.html",
+            dashboard_title=dash.dashboard_title,
+            bootstrap_data=json.dumps(bootstrap_data),
+            standalone_mode=True,
+            share=True
+        )
     @has_access
     @expose("/sync_druid/", methods=['POST'])
     @log_this
