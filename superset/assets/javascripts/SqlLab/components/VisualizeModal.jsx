@@ -201,7 +201,7 @@ class VisualizeModal extends React.PureComponent {
     }
     const tableData = this.props.query.results.columns.map(col => ({
       '字段': col.name,
-      '是度量字段': (
+      '是文本字段字段': (
         <input
           type="checkbox"
           onChange={this.changeCheckbox.bind(this, 'is_dim', col.name)}

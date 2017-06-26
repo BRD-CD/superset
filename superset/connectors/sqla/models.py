@@ -215,7 +215,7 @@ class SqlaTable(Model, BaseDatasource):
 
     def get_perm(self):
         return (
-            "[{obj.database}].[{obj.table_name}]"
+            u"[{obj.database}].[{obj.table_name}]"
             "(id:{obj.id})").format(obj=self)
 
     @property

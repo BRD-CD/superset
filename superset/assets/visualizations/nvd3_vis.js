@@ -24,7 +24,7 @@ const BREAKPOINTS = {
 };
 
 const addTotalBarValues = function (svg, chart, data, stacked, axisFormat) {
-  const format = d3.format(axisFormat || '.3s');
+  var format = d3.format(axisFormat);
   const countSeriesDisplayed = data.length;
 
   const totalStackedValues = stacked && data.length !== 0 ?
@@ -56,7 +56,7 @@ const addTotalBarValues = function (svg, chart, data, stacked, axisFormat) {
       const t = groupLabels.append('text')
         .attr('x', xPos) // rough position first, fine tune later
         .attr('y', yPos - 5)
-        .text(format(stacked ? totalStackedValues[index] : d.y))
+        .text(parseFloat(format(stacked ? totalStackedValues[index] : d.y)))
         .attr('transform', transformAttr)
         .attr('class', 'bar-chart-label');
       const labelWidth = t.node().getBBox().width;
